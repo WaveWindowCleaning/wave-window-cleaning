@@ -9,23 +9,26 @@ type HomeType = 'single' | 'multi'
 
 interface PriceRange { min: number; max: number }
 
+// Pricing: $4/exterior pane + $3/interior pane ≈ $7/window (both sides)
+// Single-story base rate · Multi-story adds ~25% for ladder/difficulty
+// Minimum charge: $100
 const PRICES: Record<HomeType, PriceRange[]> = {
-  //        idx: 0       1       2       3       4       5
+  //        idx: 0        1        2        3        4        5
   single: [
-    { min: 99,  max: 140 },  // 5 windows
-    { min: 130, max: 175 },  // 10
-    { min: 165, max: 215 },  // 15
-    { min: 200, max: 260 },  // 20
-    { min: 240, max: 310 },  // 25
-    { min: 285, max: 375 },  // 30+
+    { min: 100, max: 100 },  // 5 windows  (~$35 → $100 min)
+    { min: 100, max: 140 },  // 10 windows (~$70–$100)
+    { min: 140, max: 175 },  // 15 windows (~$105–$140)
+    { min: 175, max: 220 },  // 20 windows (~$140–$175)
+    { min: 220, max: 275 },  // 25 windows (~$175–$220)
+    { min: 275, max: 350 },  // 30+
   ],
   multi: [
-    { min: 145, max: 195 },
-    { min: 185, max: 240 },
-    { min: 230, max: 295 },
-    { min: 280, max: 355 },
-    { min: 335, max: 420 },
-    { min: 395, max: 510 },
+    { min: 100, max: 125 },  // 5 windows
+    { min: 125, max: 175 },  // 10 windows
+    { min: 175, max: 220 },  // 15 windows
+    { min: 220, max: 280 },  // 20 windows
+    { min: 280, max: 350 },  // 25 windows
+    { min: 350, max: 450 },  // 30+
   ],
 }
 

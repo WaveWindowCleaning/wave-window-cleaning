@@ -2,15 +2,16 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Home, Building2, Grid3X3, Droplets, ChevronRight } from 'lucide-react'
+import { Home, Building2, Grid3X3, Droplets, Sun, ChevronRight } from 'lucide-react'
 
 const services = [
   {
     icon: Home,
     title: 'Residential Window Cleaning',
     desc: 'Spotless interior and exterior windows for homes across St. George, Bloomington Hills, Little Valley, and Green Springs. Single-story to large estate properties handled with care.',
-    price: 'From $120',
+    price: 'From $100',
     detail: 'Interior & exterior · Screens included',
+    showPrice: true,
   },
   {
     icon: Building2,
@@ -18,20 +19,31 @@ const services = [
     desc: 'First impressions matter. Scheduled maintenance cleaning for storefronts, offices, and multi-unit buildings throughout the greater St. George and Washington County area.',
     price: 'Custom quote',
     detail: 'Monthly & quarterly plans available',
+    showPrice: true,
   },
   {
     icon: Grid3X3,
     title: 'Screen Cleaning & Restoration',
     desc: "Deep-cleaned screens remove months of Southern Utah's desert dust and allergens. Torn or damaged screens repaired or replaced on-site during your appointment.",
-    price: 'From $8/screen',
-    detail: 'Repair & full replacement available',
+    price: 'Free quote',
+    detail: 'Priced per job — call for details',
+    showPrice: false,
   },
   {
     icon: Droplets,
     title: 'Hard Water Stain Removal',
     desc: "Utah's mineral-rich water leaves stubborn white haze on glass over time. Our professional-grade treatment removes calcium and mineral buildup that normal cleaning cannot touch.",
-    price: 'From $75',
-    detail: 'Professional-grade treatment',
+    price: 'Free quote',
+    detail: 'Priced per job — call for details',
+    showPrice: false,
+  },
+  {
+    icon: Sun,
+    title: 'Solar Panel Cleaning',
+    desc: 'Dirty solar panels can lose 15–25% of their energy output. We safely clean and rinse your panels to restore peak performance and protect your investment.',
+    price: 'Custom quote',
+    detail: 'Residential & commercial systems',
+    showPrice: true,
   },
 ]
 
@@ -56,7 +68,7 @@ export default function Services() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((svc, i) => (
             <motion.div
               key={svc.title}
@@ -72,11 +84,20 @@ export default function Services() {
               </div>
               <h3 className="font-bold text-charcoal text-[15px] leading-snug">{svc.title}</h3>
               <p className="mt-2.5 text-muted text-sm leading-relaxed flex-1">{svc.desc}</p>
-              <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
-                <div>
-                  <p className="text-brand-navy font-black text-sm">{svc.price}</p>
-                  <p className="text-xs text-muted mt-0.5">{svc.detail}</p>
-                </div>
+              <div className="mt-5 pt-4 border-t border-gray-100">
+                {svc.showPrice ? (
+                  <>
+                    <p className="text-brand-navy font-black text-sm">{svc.price}</p>
+                    <p className="text-xs text-muted mt-0.5">{svc.detail}</p>
+                  </>
+                ) : (
+                  <Link
+                    href="/quote"
+                    className="inline-flex items-center gap-1.5 text-brand-navy font-semibold text-sm hover:underline"
+                  >
+                    Get a free quote <ChevronRight size={13} />
+                  </Link>
+                )}
               </div>
             </motion.div>
           ))}

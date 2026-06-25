@@ -105,19 +105,7 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/30 to-transparent" />
             </div>
 
-            {/* Floating stat card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              className="absolute -bottom-5 -left-4 lg:-left-8 bg-white rounded-2xl p-4 shadow-2xl border border-gray-100/60"
-            >
-              <p className="text-xs text-muted font-medium">Avg. job time</p>
-              <p className="text-2xl font-black text-charcoal mt-0.5">~90 min</p>
-              <p className="text-xs text-muted">Most homes done same day</p>
-            </motion.div>
-
-            {/* Second floating card */}
+            {/* Floating card */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}

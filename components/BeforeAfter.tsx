@@ -50,8 +50,8 @@ export default function BeforeAfter() {
           {/* After — base layer */}
           <div className="absolute inset-0">
             <Image
-              src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=900&q=85"
-              alt="After: Crystal-clear windows after Wave Window Cleaning service in St. George, UT"
+              src="/hardwater-after.png"
+              alt="After: Hard water stains fully removed by Wave Window Cleaning in St. George, UT"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 768px"
@@ -64,8 +64,8 @@ export default function BeforeAfter() {
             style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
           >
             <Image
-              src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=900&q=85"
-              alt="Before: Dirty windows with hard water stains before cleaning"
+              src="/hardwater-before.png"
+              alt="Before: Severe hard water staining on window glass"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 768px"
