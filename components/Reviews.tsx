@@ -13,7 +13,7 @@ const reviews = [
   {
     name: 'James R.',
     location: 'Bloomington Hills',
-    text: "Professional, fast, and incredibly thorough. 24 windows done in under 2 hours, zero streaks. The 7-day rain guarantee sealed the deal for me. Highly recommend.",
+    text: "Professional, fast, and incredibly thorough. Zero streaks anywhere. The 7-day rain guarantee sealed the deal for me — such a smart policy. Highly recommend.",
     date: '1 month ago',
   },
   {
@@ -21,24 +21,6 @@ const reviews = [
     location: 'Santa Clara',
     text: "Hablé con ellos en español y fue muy fácil comunicarme. El servicio fue impresionante — muy detallados y completamente profesionales. Los recomiendo al 100%.",
     date: '3 weeks ago',
-  },
-  {
-    name: 'Tom & Lisa K.',
-    location: 'Green Springs',
-    text: "We use them for our commercial storefront — always on time, always perfect. We signed up for their monthly maintenance plan and couldn't be happier.",
-    date: '1 month ago',
-  },
-  {
-    name: 'Rachel N.',
-    location: 'Ivins',
-    text: "Noticed their truck at our neighbor's house and asked for a card on the spot. So glad I did. Incredible attention to detail and very reasonable pricing.",
-    date: '2 months ago',
-  },
-  {
-    name: 'David W.',
-    location: 'Washington, UT',
-    text: "On time, efficient, and my windows have literally never looked this good. I could not believe the difference the hard water treatment made. Will book every season.",
-    date: '3 months ago',
   },
 ]
 
@@ -67,12 +49,12 @@ export default function Reviews() {
               <Star key={i} size={22} className="text-yellow-400 fill-yellow-400" />
             ))}
           </div>
-          <span className="text-brand-navy text-xs font-bold tracking-[0.18em] uppercase">Verified Google Reviews</span>
+          <span className="text-brand-navy text-xs font-bold tracking-[0.18em] uppercase">Customer Reviews</span>
           <h2 className="mt-3 text-3xl lg:text-4xl font-black text-charcoal tracking-tight">
             What Our Customers Say
           </h2>
           <p className="mt-3 text-muted text-sm">
-            5.0 average rating · 47 verified reviews across greater St. George
+            5.0 average rating · 22+ happy customers across greater St. George
           </p>
         </motion.div>
 

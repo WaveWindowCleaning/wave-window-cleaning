@@ -29,8 +29,8 @@ export default function CTASection() {
             Windows on the Block?
           </h2>
           <p className="mt-5 text-white/65 text-lg max-w-xl mx-auto leading-relaxed">
-            Join hundreds of St. George homeowners who trust Wave Window Cleaning. Your
-            estimate is 100% free and takes 60 seconds.
+            St. George homeowners love the results. Your estimate is 100% free
+            and takes 60 seconds.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">

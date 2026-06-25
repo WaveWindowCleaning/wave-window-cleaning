@@ -16,6 +16,7 @@ interface FormData {
   address: string
   stories: '1' | '2+' | ''
   windows: string
+  hasSolarPanels: boolean
   services: string[]
   spanishConsult: boolean
   notes: string
@@ -25,9 +26,10 @@ type FormErrors = Partial<Record<keyof FormData, string>>
 
 const SERVICES = [
   'Residential Window Cleaning',
-  'Commercial Window Cleaning',
+  'Solar Panel Cleaning',
   'Screen Cleaning & Restoration',
   'Hard Water Stain Removal',
+  'Commercial Window Cleaning',
 ]
 
 // ── Validation ─────────────────────────────────────────────────────────────────
@@ -85,6 +87,7 @@ export default function QuotePage() {
     address: '',
     stories: '',
     windows: '15',
+    hasSolarPanels: false,
     services: [],
     spanishConsult: false,
     notes: '',
@@ -140,6 +143,7 @@ export default function QuotePage() {
           address: form.address,
           stories: form.stories,
           windows: form.windows,
+          has_solar_panels: form.hasSolarPanels ? 'Yes' : 'No',
           services: form.services.join(', '),
           spanish_consult: form.spanishConsult ? 'Yes' : 'No',
           notes: form.notes,
@@ -409,6 +413,30 @@ export default function QuotePage() {
                   />
                   <div className="flex justify-between text-xs text-muted mt-1">
                     <span>5</span><span>15</span><span>25</span><span>35</span><span>45+</span>
+                  </div>
+                </div>
+
+                {/* Solar panel toggle */}
+                <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="font-semibold text-charcoal text-sm">Do you have solar panels?</p>
+                      <p className="text-xs text-muted mt-0.5">We offer professional solar panel cleaning to maximize energy output.</p>
+                    </div>
+                    <button
+                      role="switch"
+                      aria-checked={form.hasSolarPanels}
+                      onClick={() => update('hasSolarPanels', !form.hasSolarPanels)}
+                      className={`relative w-12 h-7 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-navy/30 shrink-0 ${
+                        form.hasSolarPanels ? 'bg-brand-navy' : 'bg-gray-200'
+                      }`}
+                    >
+                      <span
+                        className={`absolute top-1 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200 ${
+                          form.hasSolarPanels ? 'translate-x-6' : 'translate-x-1'
+                        }`}
+                      />
+                    </button>
                   </div>
                 </div>
 

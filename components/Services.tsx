@@ -9,16 +9,24 @@ const services = [
     icon: Home,
     title: 'Residential Window Cleaning',
     desc: 'Spotless interior and exterior windows for homes across St. George, Bloomington Hills, Little Valley, and Green Springs. Single-story to large estate properties handled with care.',
-    price: 'From $100',
-    detail: 'Interior & exterior · Screens included',
+    price: 'Free quote',
+    detail: 'Get your estimate in 60 seconds',
+    showPrice: true,
+  },
+  {
+    icon: Sun,
+    title: 'Solar Panel Cleaning',
+    desc: 'Dirty solar panels can lose 15–25% of their energy output. We safely clean and rinse your panels to restore peak performance and protect your investment year-round.',
+    price: 'Custom quote',
+    detail: 'Residential systems · All panel types',
     showPrice: true,
   },
   {
     icon: Building2,
     title: 'Commercial Window Cleaning',
-    desc: 'First impressions matter. Scheduled maintenance cleaning for storefronts, offices, and multi-unit buildings throughout the greater St. George and Washington County area.',
+    desc: 'First impressions matter. Scheduled maintenance cleaning for storefronts, offices, and small commercial buildings throughout the greater St. George and Washington County area.',
     price: 'Custom quote',
-    detail: 'Monthly & quarterly plans available',
+    detail: 'Recurring maintenance plans available',
     showPrice: true,
   },
   {
@@ -36,14 +44,6 @@ const services = [
     price: 'Free quote',
     detail: 'Priced per job — call for details',
     showPrice: false,
-  },
-  {
-    icon: Sun,
-    title: 'Solar Panel Cleaning',
-    desc: 'Dirty solar panels can lose 15–25% of their energy output. We safely clean and rinse your panels to restore peak performance and protect your investment.',
-    price: 'Custom quote',
-    detail: 'Residential & commercial systems',
-    showPrice: true,
   },
 ]
 

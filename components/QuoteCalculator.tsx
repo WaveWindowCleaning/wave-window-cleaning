@@ -6,48 +6,45 @@ import Link from 'next/link'
 import { Home, Building2, ChevronRight, Info } from 'lucide-react'
 
 type HomeType = 'single' | 'multi'
-
 interface PriceRange { min: number; max: number }
 
-// Pricing: $4/exterior pane + $3/interior pane ≈ $7/window (both sides)
-// Single-story base rate · Multi-story adds ~25% for ladder/difficulty
-// Minimum charge: $100
+// Window count ranges displayed to user
+const WINDOW_RANGES = ['5–9', '10–14', '15–19', '20–24', '25–29', '30+']
+
+// Pricing: ~$4 exterior + $3 interior per pane, $100 minimum
+// Multi-story adds ~20% for ladder/equipment difficulty
 const PRICES: Record<HomeType, PriceRange[]> = {
-  //        idx: 0        1        2        3        4        5
   single: [
-    { min: 100, max: 100 },  // 5 windows  (~$35 → $100 min)
-    { min: 100, max: 140 },  // 10 windows (~$70–$100)
-    { min: 140, max: 175 },  // 15 windows (~$105–$140)
-    { min: 175, max: 220 },  // 20 windows (~$140–$175)
-    { min: 220, max: 275 },  // 25 windows (~$175–$220)
-    { min: 275, max: 350 },  // 30+
+    { min: 100, max: 100 },  // 5–9 windows
+    { min: 100, max: 125 },  // 10–14
+    { min: 125, max: 160 },  // 15–19
+    { min: 160, max: 200 },  // 20–24
+    { min: 200, max: 245 },  // 25–29
+    { min: 245, max: 320 },  // 30+
   ],
   multi: [
-    { min: 100, max: 125 },  // 5 windows
-    { min: 125, max: 175 },  // 10 windows
-    { min: 175, max: 220 },  // 15 windows
-    { min: 220, max: 280 },  // 20 windows
-    { min: 280, max: 350 },  // 25 windows
-    { min: 350, max: 450 },  // 30+
+    { min: 100, max: 120 },  // 5–9
+    { min: 120, max: 155 },  // 10–14
+    { min: 155, max: 195 },  // 15–19
+    { min: 195, max: 245 },  // 20–24
+    { min: 245, max: 300 },  // 25–29
+    { min: 300, max: 390 },  // 30+
   ],
 }
 
-const WINDOW_LABELS = ['5', '10', '15', '20', '25', '30+']
-
 export default function QuoteCalculator() {
   const [homeType, setHomeType] = useState<HomeType>('single')
-  const [windowIdx, setWindowIdx] = useState(2)
+  const [windowIdx, setWindowIdx] = useState(1)
 
   const price = PRICES[homeType][windowIdx]
+  const isSamePrice = price.min === price.max
 
   return (
     <section className="py-20 lg:py-28 bg-navy-gradient relative overflow-hidden">
-      {/* Subtle pattern */}
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage:
-            'radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1px)',
           backgroundSize: '28px 28px',
         }}
       />
@@ -64,7 +61,7 @@ export default function QuoteCalculator() {
             What Will It Cost?
           </h2>
           <p className="mt-4 text-white/60 text-lg">
-            Slide the bar to see your personalized estimate instantly.
+            Get a ballpark estimate in seconds — no commitment needed.
           </p>
         </motion.div>
 
@@ -75,7 +72,7 @@ export default function QuoteCalculator() {
           transition={{ delay: 0.1 }}
           className="bg-white/8 border border-white/12 rounded-3xl p-7 lg:p-10 backdrop-blur-sm"
         >
-          {/* Home type selector */}
+          {/* Home type */}
           <div className="mb-8">
             <p className="text-white/75 text-sm font-semibold mb-3">Home Type</p>
             <div className="grid grid-cols-2 gap-3">
@@ -99,17 +96,17 @@ export default function QuoteCalculator() {
             </div>
           </div>
 
-          {/* Window count slider */}
+          {/* Window range selector */}
           <div className="mb-10">
             <div className="flex justify-between items-center mb-4">
-              <p className="text-white/75 text-sm font-semibold">Estimated Window Count</p>
+              <p className="text-white/75 text-sm font-semibold">Number of Windows</p>
               <motion.span
                 key={windowIdx}
                 initial={{ scale: 0.85, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 className="text-white font-black text-xl"
               >
-                {WINDOW_LABELS[windowIdx]} windows
+                {WINDOW_RANGES[windowIdx]}
               </motion.span>
             </div>
             <input
@@ -122,9 +119,17 @@ export default function QuoteCalculator() {
               className="w-full cursor-pointer"
               style={{ accentColor: 'white' }}
             />
-            <div className="flex justify-between mt-2">
-              {WINDOW_LABELS.map((lbl) => (
-                <span key={lbl} className="text-[11px] text-white/35 font-medium">{lbl}</span>
+            <div className="flex justify-between mt-2.5">
+              {WINDOW_RANGES.map((lbl, i) => (
+                <button
+                  key={lbl}
+                  onClick={() => setWindowIdx(i)}
+                  className={`text-[11px] font-medium transition-colors ${
+                    windowIdx === i ? 'text-white' : 'text-white/35 hover:text-white/60'
+                  }`}
+                >
+                  {lbl}
+                </button>
               ))}
             </div>
           </div>
@@ -132,7 +137,7 @@ export default function QuoteCalculator() {
           {/* Price result */}
           <div className="bg-white/10 border border-white/15 rounded-2xl py-8 px-6 text-center">
             <p className="text-white/55 text-xs font-semibold tracking-widest uppercase mb-2">
-              Estimated Investment Range
+              Estimated Investment
             </p>
             <motion.p
               key={`${homeType}-${windowIdx}`}
@@ -141,11 +146,11 @@ export default function QuoteCalculator() {
               transition={{ duration: 0.3 }}
               className="text-4xl lg:text-5xl font-black text-white"
             >
-              ${price.min}–${price.max}
+              {isSamePrice ? `$${price.min}` : `$${price.min}–$${price.max}`}
             </motion.p>
             <div className="flex items-center justify-center gap-1.5 mt-3 text-white/40 text-xs">
               <Info size={12} />
-              Final price confirmed on-site · No surprise charges · Free estimate
+              Final price confirmed on-site · No surprise charges
             </div>
           </div>
 
@@ -153,12 +158,12 @@ export default function QuoteCalculator() {
             href="/quote"
             className="group mt-6 w-full flex items-center justify-center gap-2 bg-white text-brand-navy font-black py-4 rounded-xl hover:bg-gray-50 transition-colors shadow-lg text-base"
           >
-            Lock In This Rate — Get Free Quote
+            Get Your Free Quote
             <ChevronRight size={17} className="group-hover:translate-x-0.5 transition-transform" />
           </Link>
 
           <p className="text-center text-white/35 text-xs mt-4">
-            Or call us for an immediate quote: (435) 229-5674
+            Or call us: (435) 229-5674 · Se Habla Español
           </p>
         </motion.div>
       </div>

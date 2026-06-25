@@ -40,7 +40,7 @@ export default function Hero() {
                   <Star key={i} size={11} className="text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
-              <span className="text-white/85 text-xs font-medium">5.0 · 47+ Google Reviews</span>
+              <span className="text-white/85 text-xs font-medium">5.0 · 22+ Reviews</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-black text-white leading-[1.08] tracking-tight">

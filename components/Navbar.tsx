@@ -32,16 +32,22 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 lg:h-20 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        {/* Logo + Name */}
+        <Link href="/" className="flex items-center gap-3 shrink-0">
           <Image
             src="/logo.png"
             alt="Wave Window Cleaning"
-            width={150}
-            height={48}
-            className="h-10 lg:h-12 w-auto object-contain"
+            width={44}
+            height={44}
+            className="h-10 w-10 object-contain rounded-xl"
             priority
           />
+          <span className={`font-black text-base tracking-tight leading-tight transition-colors hidden sm:block ${
+            scrolled ? 'text-brand-navy' : 'text-white'
+          }`}>
+            Wave Window<br className="hidden lg:block" />
+            <span className="lg:hidden"> </span>Cleaning
+          </span>
         </Link>
 
         {/* Desktop nav links */}

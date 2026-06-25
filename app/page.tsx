@@ -4,6 +4,7 @@ import TrustBar from '@/components/TrustBar'
 import Services from '@/components/Services'
 import BeforeAfter from '@/components/BeforeAfter'
 import Process from '@/components/Process'
+import MaintenancePlans from '@/components/MaintenancePlans'
 import Reviews from '@/components/Reviews'
 import QuoteCalculator from '@/components/QuoteCalculator'
 import ServiceAreaMap from '@/components/ServiceAreaMap'
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Services />
       <BeforeAfter />
       <Process />
+      <MaintenancePlans />
       <Reviews />
       <QuoteCalculator />
       <ServiceAreaMap />
