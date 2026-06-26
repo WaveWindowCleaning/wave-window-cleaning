@@ -95,8 +95,8 @@ export default function Hero() {
           >
             <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] ring-1 ring-white/10">
               <Image
-                src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=900&q=85"
-                alt="Close up of sparkling clean residential windows on a St. George home"
+                src="/hero-windows.jpg"
+                alt="Sparkling clean windows on a St. George, Utah home — Wave Window Cleaning"
                 fill
                 className="object-cover"
                 priority
