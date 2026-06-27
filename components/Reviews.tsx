@@ -5,16 +5,16 @@ import { Star } from 'lucide-react'
 
 const reviews = [
   {
-    name: 'Sarah M.',
-    location: 'Little Valley, St. George',
-    text: "Best window cleaning I've ever had. They removed hard water stains I thought were permanent. Every window looks brand new. I will absolutely book them again!",
-    date: '2 weeks ago',
+    name: 'Benjamin Barrus',
+    location: 'St. George, UT',
+    text: "Excellent work! He got rid of all of the hard water on my basement windows which had been there for years! Also very nice man! Speechless!",
+    date: '2 days ago',
   },
   {
-    name: 'James R.',
-    location: 'Bloomington Hills',
-    text: "Professional, fast, and incredibly thorough. Zero streaks anywhere. The 7-day rain guarantee sealed the deal for me — such a smart policy. Highly recommend.",
-    date: '1 month ago',
+    name: 'Connie Wagner',
+    location: 'St. George, UT',
+    text: "Wave Window Cleaning is by far the best! He was professional, punctual, knowledgeable and efficient. He pays attention to detail. I have and will recommend this service. We definitely will be using this service again. You need to give this service a try, you won't be disappointed.",
+    date: '2 days ago',
   },
   {
     name: 'María G.',
