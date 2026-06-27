@@ -34,7 +34,7 @@ export default function MaintenancePlans() {
         >
           <span className="text-brand-navy text-xs font-bold tracking-[0.18em] uppercase">Maintenance Plans</span>
           <h2 className="mt-3 text-3xl lg:text-4xl font-black text-charcoal tracking-tight">
-            Always-Clean Windows. Zero Effort.
+            Consistently Clean Windows. Zero Effort.
           </h2>
           <p className="mt-4 text-muted text-lg leading-relaxed">
             Plan clients get locked-in rates, priority booking, and perks
