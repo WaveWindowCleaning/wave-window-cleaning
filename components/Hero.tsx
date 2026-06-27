@@ -93,7 +93,7 @@ export default function Hero() {
           >
             <div className="text-center">
               <p className="text-white font-black text-xl leading-none">100%</p>
-              <p className="text-white/55 text-xs mt-0.5">Satisfaction</p>
+              <p className="text-white/55 text-xs mt-0.5">Satisfaction Guarantee</p>
             </div>
             <div className="w-px h-8 bg-white/15" />
             <p className="text-white/70 text-xs leading-snug max-w-[160px]">

@@ -6,7 +6,7 @@ import { ShieldCheck, MapPin, Award, Umbrella, Languages } from 'lucide-react'
 const trustItems = [
   { icon: ShieldCheck, label: 'Licensed & Insured',        sub: 'Fully covered, always'         },
   { icon: MapPin,      label: 'Local St. George Business', sub: 'Proudly serving Southern Utah'   },
-  { icon: Award,       label: '100% Satisfaction',         sub: 'Or we make it right'            },
+  { icon: Award,       label: '100% Satisfaction Guarantee', sub: 'Or we make it right'           },
   { icon: Umbrella,    label: '7-Day Weather Guarantee',   sub: 'Rain? We come back free'        },
   { icon: Languages,   label: 'Se Habla Español',          sub: 'Bilingual team available'       },
 ]
