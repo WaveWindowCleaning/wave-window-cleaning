@@ -13,8 +13,8 @@ const biAnnualPerks = [
 ]
 
 const quarterlyPerks = [
-  { icon: Sparkles, text: 'Unlimited free hard water removal' },
   { icon: CheckCircle, text: '$50 off every clean — $200 saved per year' },
+  { icon: Sparkles, text: 'Unlimited free hard water removal' },
   { icon: Zap,       text: '48-hr storm response after major dust storms' },
   { icon: CheckCircle, text: 'Tracks, sills & screens deep cleaned every visit' },
   { icon: Lock,      text: 'Rate locked in for 2 years — guaranteed' },
