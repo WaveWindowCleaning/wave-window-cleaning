@@ -17,10 +17,10 @@ const reviews = [
     date: '2 days ago',
   },
   {
-    name: 'María G.',
-    location: 'Santa Clara',
-    text: "Hablé con ellos en español y fue muy fácil comunicarme. El servicio fue impresionante — muy detallados y completamente profesionales. Los recomiendo al 100%.",
-    date: '3 weeks ago',
+    name: 'Joanne Austin',
+    location: 'St. George, UT',
+    text: "Teancum was on time, hard working and polite. He went the extra mile to be helpful. He's a definite recommend.",
+    date: '2 days ago',
   },
 ]
 
