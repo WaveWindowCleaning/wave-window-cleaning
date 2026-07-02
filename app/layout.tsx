@@ -42,6 +42,11 @@ export const metadata: Metadata = {
     title: 'Wave Window Cleaning | St. George, UT',
     description: 'Premium window cleaning services in St. George, Utah.',
   },
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
   robots: {
     index: true,
     follow: true,
