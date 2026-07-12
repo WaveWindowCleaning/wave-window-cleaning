@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin, Languages } from 'lucide-react'
 const services = [
   'Residential Window Cleaning',
   'Solar Panel Cleaning',
-  'Screen Cleaning & Restoration',
+  'Screen Cleaning',
   'Hard Water Stain Removal',
   'Commercial Window Cleaning',
 ]

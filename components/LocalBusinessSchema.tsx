@@ -28,7 +28,7 @@ export default function LocalBusinessSchema() {
       itemListElement: [
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Residential Window Cleaning' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial Window Cleaning' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Screen Cleaning & Restoration' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Screen Cleaning' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Hard Water Stain Removal' } },
       ],
     },

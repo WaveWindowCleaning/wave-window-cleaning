@@ -31,8 +31,8 @@ const services = [
   },
   {
     icon: Grid3X3,
-    title: 'Screen Cleaning & Restoration',
-    desc: "Deep-cleaned screens remove months of Southern Utah's desert dust and allergens. Torn or damaged screens repaired or replaced on-site during your appointment.",
+    title: 'Screen Cleaning',
+    desc: "Deep-cleaned screens remove months of Southern Utah's desert dust and allergens. We carefully clean every screen so your windows look and breathe their best.",
     price: 'Free quote',
     detail: 'Priced per job — call for details',
     showPrice: false,

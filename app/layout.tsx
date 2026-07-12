@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     template: '%s | Wave Window Cleaning',
   },
   description:
-    'Premium window cleaning in St. George, Utah. Licensed & insured. Residential, commercial, screen repair, and hard water stain removal. Serving Bloomington, Little Valley, Santa Clara, Washington, Ivins & Green Springs. Free estimates. Se Habla Español.',
+    'Premium window cleaning in St. George, Utah. Licensed & insured. Residential, commercial, screen cleaning, and hard water stain removal. Serving Bloomington, Little Valley, Santa Clara, Washington, Ivins & Green Springs. Free estimates. Se Habla Español.',
   keywords: [
     'St. George window cleaning',
     'window cleaning St George Utah',
     'residential window cleaning St George',
     'commercial window cleaning St George',
-    'screen repair St George',
+    'screen cleaning St George',
     'hard water stain removal Utah',
     'window washing St George',
     'Santa Clara window cleaning',

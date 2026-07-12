@@ -27,7 +27,7 @@ type FormErrors = Partial<Record<keyof FormData, string>>
 const SERVICES = [
   'Residential Window Cleaning',
   'Solar Panel Cleaning',
-  'Screen Cleaning & Restoration',
+  'Screen Cleaning',
   'Hard Water Stain Removal',
   'Commercial Window Cleaning',
 ]
