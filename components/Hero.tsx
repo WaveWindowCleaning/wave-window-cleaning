@@ -16,7 +16,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex overflow-hidden">
 
       {/* ── Left: Navy copy panel ─────────────────────────────────────── */}
-      <div className="relative z-10 flex items-center w-full lg:w-1/2 bg-navy-gradient px-6 sm:px-10 lg:px-16 xl:px-20 pt-28 pb-24 lg:py-0">
+      <div className="relative z-10 flex items-center w-full lg:w-[45%] bg-navy-gradient px-6 sm:px-10 lg:px-14 xl:px-18 pt-28 pb-24 lg:py-0">
         {/* Dot grid */}
         <div
           className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -108,25 +108,22 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.15 }}
-        className="hidden lg:block lg:w-1/2 relative overflow-hidden"
+        className="hidden lg:flex lg:w-[55%] relative overflow-hidden"
       >
-        {/* Inner wrapper extends slightly beyond bounds to crop phone status bar & bottom black bars */}
-        <div className="absolute" style={{ top: '-8%', bottom: '-10%', left: 0, right: 0 }}>
-          <Image
-            src="/hero-me.png"
-            alt="Teancum, owner of Wave Window Cleaning, professionally serving St. George, Utah"
-            fill
-            className="object-cover"
-            style={{
-              objectPosition: 'center 30%',
-              filter: 'contrast(1.08) saturate(1.06) brightness(1.02)',
-            }}
-            priority
-            sizes="50vw"
-          />
-        </div>
-        {/* Subtle left-edge fade into navy */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/40 via-transparent to-transparent pointer-events-none z-10" />
+        <Image
+          src="/hero-me.png"
+          alt="Teancum, owner of Wave Window Cleaning, serving St. George Utah homeowners"
+          fill
+          quality={100}
+          className="object-cover"
+          style={{ objectPosition: 'center 20%' }}
+          priority
+          sizes="55vw"
+        />
+        {/* Left-edge fade into navy */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0e2840]/60 via-transparent to-transparent pointer-events-none z-10" />
+        {/* Bottom-edge vignette for polish */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent pointer-events-none z-10" />
       </motion.div>
 
       {/* Wave divider */}
