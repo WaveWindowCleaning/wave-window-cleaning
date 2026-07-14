@@ -111,12 +111,15 @@ export default function Hero() {
         className="hidden lg:flex lg:w-[55%] relative overflow-hidden"
       >
         <Image
-          src="/hero-me.png"
+          src="/hero-me.jpg"
           alt="Teancum, owner of Wave Window Cleaning, serving St. George Utah homeowners"
           fill
           quality={100}
           className="object-cover"
-          style={{ objectPosition: 'center 20%' }}
+          style={{
+            objectPosition: 'center 20%',
+            filter: 'contrast(1.12) saturate(1.08) brightness(1.03)',
+          }}
           priority
           sizes="55vw"
         />
