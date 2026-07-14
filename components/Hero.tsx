@@ -108,18 +108,25 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.15 }}
-        className="hidden lg:block lg:w-1/2 relative"
+        className="hidden lg:block lg:w-1/2 relative overflow-hidden"
       >
-        <Image
-          src="/hero-windows.jpg"
-          alt="Sparkling clean windows on a St. George, Utah home — Wave Window Cleaning"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="50vw"
-        />
+        {/* Inner wrapper extends slightly beyond bounds to crop phone status bar & bottom black bars */}
+        <div className="absolute" style={{ top: '-8%', bottom: '-10%', left: 0, right: 0 }}>
+          <Image
+            src="/hero-me.png"
+            alt="Teancum, owner of Wave Window Cleaning, professionally serving St. George, Utah"
+            fill
+            className="object-cover"
+            style={{
+              objectPosition: 'center 30%',
+              filter: 'contrast(1.08) saturate(1.06) brightness(1.02)',
+            }}
+            priority
+            sizes="50vw"
+          />
+        </div>
         {/* Subtle left-edge fade into navy */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/40 via-transparent to-transparent pointer-events-none z-10" />
       </motion.div>
 
       {/* Wave divider */}
