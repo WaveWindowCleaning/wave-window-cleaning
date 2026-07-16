@@ -103,30 +103,35 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* ── Right: Full-bleed photo panel ────────────────────────────── */}
+      {/* ── Right: Portrait photo panel ──────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.15 }}
-        className="hidden lg:flex lg:w-[55%] relative overflow-hidden"
+        className="hidden lg:flex lg:w-[55%] relative overflow-hidden bg-[#1A3D54]"
       >
-        <Image
-          src="/hero-me.jpg"
-          alt="Teancum, owner of Wave Window Cleaning, serving St. George Utah homeowners"
-          fill
-          quality={100}
-          className="object-cover"
-          style={{
-            objectPosition: 'center 20%',
-            filter: 'contrast(1.12) saturate(1.08) brightness(1.03)',
-          }}
-          priority
-          sizes="55vw"
-        />
-        {/* Left-edge fade into navy */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0e2840]/60 via-transparent to-transparent pointer-events-none z-10" />
-        {/* Bottom-edge vignette for polish */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent pointer-events-none z-10" />
+        {/* clip-path trims the phone status bar (top) and black letterbox (bottom)
+            while keeping the full body — brush at top through feet — visible */}
+        <div
+          className="absolute inset-0"
+          style={{ clipPath: 'inset(5% 0 6% 0)' }}
+        >
+          <Image
+            src="/teancum.jpg"
+            alt="Teancum, owner of Wave Window Cleaning, serving St. George Utah homeowners"
+            fill
+            quality={100}
+            className="object-contain"
+            style={{
+              objectPosition: 'center top',
+              filter: 'contrast(1.1) saturate(1.08) brightness(1.02)',
+            }}
+            priority
+            sizes="55vw"
+          />
+        </div>
+        {/* Left-edge fade blends photo panel into the navy copy panel */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1A3D54]/85 via-[#1A3D54]/15 to-transparent pointer-events-none z-10" />
       </motion.div>
 
       {/* Wave divider */}
