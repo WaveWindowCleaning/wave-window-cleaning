@@ -3,122 +3,132 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Phone, ChevronRight, Shield, Star } from 'lucide-react'
-import QuickLeadForm from './QuickLeadForm'
+import { Phone, Star, ShieldCheck, BadgeCheck, Umbrella, Languages } from 'lucide-react'
 
 const badges = [
-  'Licensed & Insured',
-  '7-Day Weather Guarantee',
-  'Se Habla Español',
+  { icon: ShieldCheck, label: 'Licensed & Insured' },
+  { icon: BadgeCheck,  label: 'Satisfaction Guaranteed' },
+  { icon: Umbrella,    label: '7-Day Weather Guarantee' },
+  { icon: Languages,   label: 'Se Habla Español' },
 ]
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex overflow-hidden">
 
-      {/* ── Left: Navy copy panel ─────────────────────────────────────── */}
-      <div className="relative z-10 flex items-center w-full lg:w-[45%] bg-navy-gradient px-6 sm:px-10 lg:px-14 xl:px-18 pt-28 pb-24 lg:py-0">
-        {/* Dot grid */}
+      {/* ── Left: Copy panel ──────────────────────────────────────────── */}
+      <div className="relative z-10 flex items-center w-full lg:w-[48%] bg-navy-gradient px-6 sm:px-10 lg:px-14 xl:px-20 pt-32 pb-28 lg:py-0">
+
+        {/* Subtle dot texture */}
         <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
+          className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)',
-            backgroundSize: '36px 36px',
+            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+            backgroundSize: '40px 40px',
           }}
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="relative max-w-lg w-full mx-auto lg:mx-0"
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="relative max-w-xl w-full mx-auto lg:mx-0"
         >
-          {/* Stars badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
+
+          {/* Google rating badge */}
+          <div className="inline-flex items-center gap-2.5 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-8">
             <div className="flex gap-0.5">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={11} className="text-yellow-400 fill-yellow-400" />
+                <Star key={i} size={12} className="text-yellow-400 fill-yellow-400" />
               ))}
             </div>
-            <span className="text-white/85 text-xs font-medium">5.0 · 22+ Reviews</span>
+            <span className="text-white/90 text-xs font-semibold tracking-wide">5-Star Rated on Google</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-black text-white leading-[1.08] tracking-tight">
-            Premium Window Cleaning in{' '}
-            <span className="text-brand-accent">St. George</span>
+          {/* Headline */}
+          <h1 className="text-4xl sm:text-5xl xl:text-[3.5rem] font-black text-white leading-[1.06] tracking-tight">
+            See Your Home the Way{' '}
+            <span className="text-brand-accent">It Was Meant</span>{' '}
+            to Be Seen
           </h1>
 
-          <p className="mt-6 text-lg text-white/70 leading-relaxed">
-            Crystal-clear windows, zero hassle. Serving homeowners across
-            St. George, Bloomington, Little Valley, Santa Clara, Washington,
-            Ivins, and Green Springs.
+          {/* Supporting copy */}
+          <p className="mt-7 text-[1.05rem] text-white/70 leading-relaxed max-w-md">
+            Wave Window Cleaning delivers meticulous, detail-focused service to St. George
+            homeowners who expect exceptional results. Dependable scheduling, respectful
+            technicians, and spotless windows — every single visit.
           </p>
 
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-3 mt-10">
+            <Link
+              href="/quote"
+              className="group inline-flex items-center justify-center gap-2 bg-white text-brand-navy font-black text-base px-8 py-4 rounded-full shadow-2xl hover:shadow-white/20 hover:-translate-y-0.5 transition-all duration-200"
+            >
+              Get My Free Quote
+            </Link>
+            <a
+              href="tel:+14352295674"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/25 text-white font-semibold text-base px-7 py-4 rounded-full hover:bg-white/15 transition-all duration-200"
+            >
+              <Phone size={16} />
+              Call (435) 229-5674
+            </a>
+          </div>
+
           {/* Trust badges */}
-          <div className="flex flex-wrap gap-2.5 mt-6">
-            {badges.map((t) => (
+          <div className="flex flex-wrap gap-2 mt-10">
+            {badges.map(({ icon: Icon, label }) => (
               <span
-                key={t}
-                className="inline-flex items-center gap-1.5 bg-white/10 border border-white/15 text-white/80 text-xs font-medium px-3 py-1.5 rounded-full"
+                key={label}
+                className="inline-flex items-center gap-1.5 bg-white/8 border border-white/12 text-white/75 text-xs font-medium px-3.5 py-1.5 rounded-full"
               >
-                <Shield size={11} className="text-brand-accent" />
-                {t}
+                <Icon size={11} className="text-brand-accent" />
+                {label}
               </span>
             ))}
           </div>
 
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-4 mt-10">
-            <Link
-              href="/quote"
-              className="group inline-flex items-center gap-2 bg-white text-brand-navy font-bold text-base px-7 py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200"
-            >
-              Get Free Quote
-              <ChevronRight size={17} className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-            <a
-              href="tel:+14352295674"
-              className="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white font-semibold text-base px-7 py-4 rounded-full hover:bg-white/18 transition-all duration-200"
-            >
-              <Phone size={17} />
-              (435) 229-5674
-            </a>
-          </div>
-
-          {/* Quick inline lead capture */}
-          <QuickLeadForm />
         </motion.div>
       </div>
 
-      {/* ── Right: Portrait photo panel ──────────────────────────────── */}
+      {/* ── Right: Owner photo panel ───────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.15 }}
-        className="hidden lg:flex lg:w-[55%] relative overflow-hidden bg-[#1A3D54]"
+        transition={{ duration: 1.1, delay: 0.2 }}
+        className="hidden lg:flex lg:w-[52%] relative overflow-hidden bg-[#1A3D54]"
       >
-        {/* clip-path trims the phone status bar (top) and black letterbox (bottom)
-            while keeping the full body — brush at top through feet — visible */}
         <div
           className="absolute inset-0"
           style={{ clipPath: 'inset(5% 0 6% 0)' }}
         >
           <Image
             src="/teancum.jpg"
-            alt="Teancum, owner of Wave Window Cleaning, serving St. George Utah homeowners"
+            alt="Teancum, owner of Wave Window Cleaning — St. George, Utah"
             fill
             quality={100}
             className="object-contain"
             style={{
               objectPosition: 'center top',
-              filter: 'contrast(1.1) saturate(1.08) brightness(1.02)',
+              filter: 'contrast(1.08) saturate(1.06) brightness(1.03)',
             }}
             priority
-            sizes="55vw"
+            sizes="52vw"
           />
         </div>
-        {/* Left-edge fade blends photo panel into the navy copy panel */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1A3D54]/85 via-[#1A3D54]/15 to-transparent pointer-events-none z-10" />
+        {/* Left-edge fade into navy */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1A3D54]/90 via-[#1A3D54]/20 to-transparent pointer-events-none z-10" />
+        {/* Owner name tag */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.5 }}
+          className="absolute bottom-16 right-8 z-20 bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-3.5 shadow-xl"
+        >
+          <p className="text-charcoal font-black text-sm">Teancum</p>
+          <p className="text-muted text-xs mt-0.5">Owner &amp; Operator · St. George, UT</p>
+        </motion.div>
       </motion.div>
 
       {/* Wave divider */}
@@ -127,6 +137,7 @@ export default function Hero() {
           <path d="M0 60L1440 60L1440 22C1200 56 900 0 720 14C540 28 240 56 0 22L0 60Z" fill="white" />
         </svg>
       </div>
+
     </section>
   )
 }
