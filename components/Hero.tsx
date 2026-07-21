@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Phone, ChevronRight, Shield, Star } from 'lucide-react'
+import QuickLeadForm from './QuickLeadForm'
 
 const badges = [
   'Licensed & Insured',
@@ -84,22 +85,8 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* 100% satisfaction card */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.5 }}
-            className="inline-flex items-center gap-3 mt-10 bg-white/8 border border-white/12 rounded-2xl px-5 py-3.5"
-          >
-            <div className="text-center">
-              <p className="text-white font-black text-xl leading-none">100%</p>
-              <p className="text-white/55 text-xs mt-0.5">Satisfaction Guarantee</p>
-            </div>
-            <div className="w-px h-8 bg-white/15" />
-            <p className="text-white/70 text-xs leading-snug max-w-[160px]">
-              If you&apos;re not thrilled, we make it right. Simple as that.
-            </p>
-          </motion.div>
+          {/* Quick inline lead capture */}
+          <QuickLeadForm />
         </motion.div>
       </div>
 
