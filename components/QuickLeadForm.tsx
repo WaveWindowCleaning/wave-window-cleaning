@@ -27,6 +27,7 @@ export default function QuickLeadForm() {
           phone,
           message: `Quick quote request from homepage.\n\nName: ${name}\nPhone: ${phone}`,
           from_page: 'Homepage Hero',
+          botcheck: '',
         }),
       })
       const data = await res.json()

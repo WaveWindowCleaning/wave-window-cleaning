@@ -66,6 +66,7 @@ export default function QuotePage() {
           service: form.service || '(not specified)',
           notes: form.notes || '(none)',
           from_page: '/quote',
+          botcheck: '',
         }),
       })
       const data = await res.json()
