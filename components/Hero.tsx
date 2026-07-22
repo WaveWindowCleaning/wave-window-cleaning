@@ -117,16 +117,6 @@ export default function Hero() {
         </div>
         {/* Left-edge fade into navy */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#1A3D54]/90 via-[#1A3D54]/20 to-transparent pointer-events-none z-10" />
-        {/* Owner name tag */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.5 }}
-          className="absolute bottom-16 right-8 z-20 bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-3.5 shadow-xl"
-        >
-          <p className="text-charcoal font-black text-sm">Teancum</p>
-          <p className="text-muted text-xs mt-0.5">Wave Window Cleaning · St. George, UT</p>
-        </motion.div>
       </motion.div>
 
       {/* Wave divider */}
