@@ -3,13 +3,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Phone, Star, ShieldCheck, BadgeCheck, Umbrella, Languages } from 'lucide-react'
+import { Phone, Star, ShieldCheck, BadgeCheck } from 'lucide-react'
 
 const badges = [
+  { icon: Star,        label: '5-Star Rated on Google' },
   { icon: ShieldCheck, label: 'Licensed & Insured' },
-  { icon: BadgeCheck,  label: 'Satisfaction Guaranteed' },
-  { icon: Umbrella,    label: '7-Day Weather Guarantee' },
-  { icon: Languages,   label: 'Se Habla Español' },
+  { icon: BadgeCheck,  label: '100% Satisfaction Guarantee' },
 ]
 
 export default function Hero() {
@@ -47,16 +46,15 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl xl:text-[3.5rem] font-black text-white leading-[1.06] tracking-tight">
-            See Your Home the Way{' '}
-            <span className="text-brand-accent">It Was Meant</span>{' '}
-            to Be Seen
+            Spotless Windows That{' '}
+            <span className="text-brand-accent">Transform</span>{' '}
+            Your Home
           </h1>
 
           {/* Supporting copy */}
           <p className="mt-7 text-[1.05rem] text-white/70 leading-relaxed max-w-md">
-            Wave Window Cleaning delivers meticulous, detail-focused service to St. George
-            homeowners who expect exceptional results. Dependable scheduling, respectful
-            technicians, and spotless windows — every single visit.
+            More natural light. Better curb appeal. A crystal-clear view you&apos;ll
+            enjoy every single day.
           </p>
 
           {/* CTAs */}
@@ -127,7 +125,7 @@ export default function Hero() {
           className="absolute bottom-16 right-8 z-20 bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-3.5 shadow-xl"
         >
           <p className="text-charcoal font-black text-sm">Teancum</p>
-          <p className="text-muted text-xs mt-0.5">Owner &amp; Operator · St. George, UT</p>
+          <p className="text-muted text-xs mt-0.5">Wave Window Cleaning · St. George, UT</p>
         </motion.div>
       </motion.div>
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Star, ShieldCheck, BadgeCheck, UserCircle } from 'lucide-react'
+import { Star, ShieldCheck, BadgeCheck } from 'lucide-react'
 
 const items = [
   {
@@ -16,13 +16,8 @@ const items = [
   },
   {
     icon: BadgeCheck,
-    title: 'Satisfaction Guaranteed',
+    title: '100% Satisfaction Guaranteed',
     body: 'If the results don\u2019t exceed your expectations, we return and make it right \u2014 no questions asked.',
-  },
-  {
-    icon: UserCircle,
-    title: 'Local Owner, Every Visit',
-    body: 'You work with Teancum directly \u2014 not a franchise, not a subcontractor. The owner is on every job.',
   },
 ]
 
