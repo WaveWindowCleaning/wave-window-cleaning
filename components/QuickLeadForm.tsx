@@ -17,22 +17,17 @@ export default function QuickLeadForm() {
     setStatus('loading')
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-          subject: 'New Quick Quote Request — Wave Window Cleaning',
           name,
           phone,
-          replyto: 'noreply@cleanwavewindows.com',
-          message: `Quick quote request from homepage.\n\nName: ${name}\nPhone: ${phone}`,
-          from_page: 'Homepage Hero',
-          botcheck: '',
+          source: 'Homepage Hero',
         }),
       })
       const data = await res.json()
-      if (data.success) {
+      if (data.ok) {
         setStatus('success')
       } else {
         setStatus('error')

@@ -53,25 +53,23 @@ export default function QuotePage() {
     if (!validate()) return
     setStatus('loading')
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-          subject: `New Quote Request — ${form.name}`,
-          from_name: form.name,
-          replyto: form.email || 'noreply@cleanwavewindows.com',
+          name: form.name,
           phone: form.phone,
-          email: form.email || '(not provided)',
-          address: form.address || '(not provided)',
-          service: form.service || '(not specified)',
-          notes: form.notes || '(none)',
-          from_page: '/quote',
+          email: form.email,
+          address: form.address,
+          service: form.service,
+          notes: form.notes,
+          source: 'Quote Page',
+        }),
           botcheck: '',
         }),
       })
       const data = await res.json()
-      setStatus(data.success ? 'success' : 'error')
+      setStatus(data.ok ? 'success' : 'error')
     } catch {
       setStatus('error')
     }
