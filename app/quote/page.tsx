@@ -65,8 +65,6 @@ export default function QuotePage() {
           notes: form.notes,
           source: 'Quote Page',
         }),
-          botcheck: '',
-        }),
       })
       const data = await res.json()
       setStatus(data.ok ? 'success' : 'error')
