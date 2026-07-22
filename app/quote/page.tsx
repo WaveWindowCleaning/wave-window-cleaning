@@ -60,6 +60,7 @@ export default function QuotePage() {
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
           subject: `New Quote Request — ${form.name}`,
           from_name: form.name,
+          replyto: form.email || 'noreply@cleanwavewindows.com',
           phone: form.phone,
           email: form.email || '(not provided)',
           address: form.address || '(not provided)',

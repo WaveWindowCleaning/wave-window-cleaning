@@ -22,9 +22,10 @@ export default function QuickLeadForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-          subject: '⚡ Quick Quote Request — Wave Window Cleaning',
+          subject: 'New Quick Quote Request — Wave Window Cleaning',
           name,
           phone,
+          replyto: 'noreply@cleanwavewindows.com',
           message: `Quick quote request from homepage.\n\nName: ${name}\nPhone: ${phone}`,
           from_page: 'Homepage Hero',
           botcheck: '',
