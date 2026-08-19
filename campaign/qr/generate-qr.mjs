@@ -32,11 +32,10 @@ const WHITE = '#FFFFFF'
  */
 const TARGETS = [
   {
-    // Points at the LIVE, deployed quote form so scans work immediately.
-    // (The dedicated /lp/free-screens landing page isn't deployed yet.)
+    // Dedicated, offer-specific landing page (form in hero). Now deployed live.
     slug: 'lp-a-free-screens',
     url:
-      'https://cleanwavewindows.com/quote' +
+      'https://cleanwavewindows.com/lp/free-screens' +
       '?utm_source=doorhanger&utm_medium=print&utm_campaign=eddm-stgeorge-2026&utm_content=version-a-free-screens',
   },
 ]

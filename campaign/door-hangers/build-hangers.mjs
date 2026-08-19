@@ -27,7 +27,7 @@ const VARIANTS = [
     file: 'version-a.html',
     version: 'A',
     qr: 'assets/qr-a.png',
-    scanUrl: 'cleanwavewindows.com/quote',
+    scanUrl: 'cleanwavewindows.com/lp/free-screens',
   },
 ]
 
