@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wave Window Cleaning — Door Hanger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1A3D54;
+    --navy-dark:#0F2535;
+    --navy-mid:#1E4F6B;
+    --accent:#3B9FD4;
+    --accent-soft:#EAF3F9;
+    --gold:#F6B41E;
+    --ink:#16202B;
+    --muted:#5E6E7A;
+    --surface:#F5F8FB;
+    --line:#E2E9F0;
+    --radius:0.13in;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body{ font-family:'Inter',system-ui,-apple-system,sans-serif; color:var(--ink); background:#8b95a1; }
+  @page{ size:4.5in 11.25in; margin:0; }
+
+  .sheet{
+    width:4.5in; height:11.25in; position:relative; overflow:hidden;
+    background:#fff; display:flex; flex-direction:column;
+    page-break-after:always; break-after:page;
+  }
+  .sheet:last-child{ page-break-after:auto; break-after:auto; }
+
+  /* Print guides — only visible with <body class="proof"> */
+  .diecut,.trim,.safe{ display:none; }
+  body.proof .trim{ display:block; position:absolute; inset:0.125in; border:0.5px dashed rgba(255,0,0,.6); pointer-events:none; z-index:99; }
+  body.proof .safe{ display:block; position:absolute; inset:0.375in; border:0.5px dashed rgba(0,150,255,.6); pointer-events:none; z-index:99; }
+  body.proof .diecut{ display:block; }
+
+  .stars{ color:var(--gold); letter-spacing:1.5px; white-space:nowrap; }
+
+  /* ══════════════════════════ TOP CAP (shared) ══════════════════════════ */
+  /* Top ~1.85in reserved for the die-cut knob hole on BOTH faces. */
+  .cap{
+    background:linear-gradient(158deg,#0F2535 0%,#1A3D54 58%,#1E4F6B 100%);
+    color:#fff; position:relative; text-align:center;
+    display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
+  }
+  .cap .diecut{
+    position:absolute; top:0.42in; left:50%; transform:translateX(-50%);
+    width:1.3in; height:1.3in; border-radius:50%;
+    border:1px dashed rgba(255,255,255,.4);
+  }
+  .cap .diecut::after{
+    content:""; position:absolute; top:-0.38in; left:50%; transform:translateX(-50%);
+    width:0.3in; height:0.38in; border:1px dashed rgba(255,255,255,.4); border-bottom:none;
+    border-radius:0.15in 0.15in 0 0;
+  }
+  .cap .tagline{
+    font-size:7.2pt; letter-spacing:.34em; text-transform:uppercase;
+    color:rgba(255,255,255,.66); font-weight:600; margin-top:0.07in;
+  }
+
+  /* ══════════════════════════ FRONT ══════════════════════════ */
+  .front-cap{ flex:0 0 auto; padding-top:1.85in; padding-bottom:0.2in; }
+  .front-cap .logo{ width:1.72in; height:auto; }
+
+  .lead{ padding:0.2in 0.42in 0.02in; text-align:center; }
+  .headline{
+    font-size:24pt; line-height:1.02; font-weight:900; color:var(--navy); letter-spacing:-.02em;
+  }
+  .headline .hl{ color:var(--accent); }
+  .subhead{ font-size:8.8pt; line-height:1.38; color:var(--muted); font-weight:500; margin:0.09in auto 0; max-width:3.0in; }
+  .trustline{
+    display:flex; align-items:center; justify-content:center; gap:0.09in;
+    margin-top:0.12in; font-size:8.2pt; font-weight:700; color:var(--ink);
+  }
+  .trustline .stars{ font-size:10.5pt; }
+  .trustline .dot{ color:var(--line); }
+  .trustline .muted{ color:var(--muted); font-weight:600; }
+
+  .photo{
+    flex:1 1 auto; min-height:1.9in; margin:0.14in 0.42in 0; position:relative;
+    border-radius:var(--radius); overflow:hidden; box-shadow:0 8px 22px rgba(15,37,53,.20);
+  }
+  .photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 0%; display:block; }
+  .photo .name{
+    position:absolute; left:0; right:0; bottom:0; padding:0.34in 0.22in 0.15in;
+    background:linear-gradient(to top, rgba(15,37,53,.96) 0%, rgba(15,37,53,.82) 34%, rgba(15,37,53,0) 72%);
+    color:#fff; text-align:left;
+  }
+  .photo .name b{ font-size:11pt; font-weight:800; display:block; letter-spacing:-.01em; }
+  .photo .name span{ font-size:8.2pt; color:rgba(255,255,255,.86); font-weight:500; }
+
+  .offer{
+    flex:0 0 auto; text-align:center; padding:0.17in 0.42in 0.19in;
+    background:var(--accent-soft); border-top:2.5px solid var(--navy); margin-top:0.14in;
+  }
+  .offer .eyebrow{ font-size:7.8pt; letter-spacing:.28em; text-transform:uppercase; font-weight:800; color:var(--navy); }
+  .offer .big{ font-size:24pt; line-height:1.0; font-weight:900; color:var(--navy); letter-spacing:-.02em; margin-top:0.06in; }
+  .offer .sub{ font-size:9.4pt; color:var(--ink); font-weight:600; margin-top:0.05in; }
+
+  .cta{
+    flex:0 0 auto; background:linear-gradient(158deg,#1A3D54,#0F2535);
+    color:#fff; padding:0.22in 0.3in 0.24in; display:flex; gap:0.18in; align-items:center;
+  }
+  .cta .txt{ flex:1; min-width:0; }
+  .cta .label{ font-size:8.4pt; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:800; }
+  .cta .phone{ font-size:22pt; font-weight:900; letter-spacing:-.03em; line-height:1.0; margin-top:0.05in; white-space:nowrap; }
+  .cta .guar{ font-size:7.4pt; color:rgba(255,255,255,.68); margin-top:0.09in; }
+  .qr{ text-align:center; flex:0 0 auto; }
+  .qr img{ width:1.42in; height:1.42in; background:#fff; padding:0.06in; border-radius:0.09in; display:block; }
+  .qr span{ display:block; font-size:7pt; color:rgba(255,255,255,.86); margin-top:0.05in; font-weight:700; letter-spacing:.02em; }
+
+  /* ══════════════════════════ BACK ══════════════════════════ */
+  .back-cap{ flex:0 0 auto; padding-top:1.72in; padding-bottom:0.12in; }
+  .back-cap .logo{ width:1.24in; height:auto; }
+  .back-cap h2{ font-size:12.5pt; font-weight:900; letter-spacing:-.01em; margin-top:0.09in; padding:0 0.34in; line-height:1.12; }
+  .back-cap .sub{ font-size:8pt; color:rgba(255,255,255,.7); font-weight:500; margin-top:0.05in; }
+
+  .backbody{ flex:1 1 auto; min-height:0; display:flex; flex-direction:column; padding:0.15in 0.34in 0.08in; }
+
+  .section-label{
+    font-size:7.8pt; letter-spacing:.2em; text-transform:uppercase; font-weight:800; color:var(--navy);
+    display:flex; align-items:center; gap:0.1in;
+  }
+  .section-label::after{ content:""; flex:1; height:1px; background:var(--line); }
+
+  /* Reviews — clean, divider-separated, no heavy cards */
+  .reviews{ margin-top:0.09in; }
+  .rev{ padding:0.065in 0; border-bottom:1px solid var(--line); }
+  .rev:first-child{ padding-top:0.01in; }
+  .rev .stars{ font-size:8.5pt; }
+  .rev p{ font-size:9.2pt; line-height:1.26; color:var(--ink); font-weight:600; margin-top:0.03in; }
+  .rev b{ font-size:7.6pt; color:var(--muted); font-weight:600; display:block; margin-top:0.025in; }
+
+  /* Before / after proof */
+  .proof-sec{ margin-top:0.13in; }
+  .ba{ display:flex; gap:0.13in; margin-top:0.09in; }
+  .ba figure{ flex:1; border-radius:var(--radius); overflow:hidden; position:relative; }
+  .ba img{ width:100%; height:1.05in; object-fit:cover; display:block; }
+  .ba figcaption{
+    position:absolute; top:0.07in; left:0.07in; background:rgba(15,37,53,.9); color:#fff;
+    font-size:6.8pt; font-weight:800; letter-spacing:.1em; text-transform:uppercase; padding:0.03in 0.09in; border-radius:0.16in;
+  }
+  .ba figure.after figcaption{ background:var(--accent); }
+
+  /* Services — compact, consistent checks */
+  .svc-sec{ margin-top:0.13in; }
+  .svcs{ display:flex; flex-wrap:wrap; gap:0.065in 0.2in; margin-top:0.09in; }
+  .svc{ display:flex; align-items:center; gap:0.07in; font-size:8.4pt; font-weight:600; color:var(--ink); width:calc(50% - 0.1in); }
+  .svc::before{
+    content:"✓"; flex:0 0 0.15in; width:0.15in; height:0.15in; border-radius:50%;
+    background:var(--navy); color:#fff; font-size:6.6pt; font-weight:900;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* Guarantee — slim, integrated */
+  .guarantee{
+    margin-top:0.13in; display:flex; align-items:center; gap:0.15in;
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--gold);
+    border-radius:var(--radius); padding:0.13in 0.16in;
+  }
+  .guarantee .seal{
+    flex:0 0 0.46in; width:0.46in; height:0.46in; border-radius:50%;
+    border:2.5px solid var(--gold); color:var(--navy); font-weight:900; font-size:9pt; line-height:1;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+  }
+  .guarantee .gtxt{ min-width:0; }
+  .guarantee b{ font-size:10pt; font-weight:900; color:var(--navy); display:block; letter-spacing:-.01em; }
+  .guarantee p{ font-size:8pt; color:var(--muted); font-weight:600; margin-top:0.025in; line-height:1.2; }
+
+  /* Closing CTA */
+  .backcta{
+    flex:0 0 auto; background:linear-gradient(158deg,#1A3D54,#0F2535);
+    color:#fff; padding:0.2in 0.3in 0.22in; display:flex; gap:0.18in; align-items:center;
+  }
+  .backcta .txt{ flex:1; min-width:0; }
+  .backcta .lead-q{ font-size:8.8pt; font-weight:600; color:rgba(255,255,255,.72); line-height:1.2; }
+  .backcta .label{ font-size:8.4pt; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:800; margin-top:0.07in; }
+  .backcta .phone{ font-size:22pt; font-weight:900; letter-spacing:-.03em; line-height:1.0; margin-top:0.04in; white-space:nowrap; }
+</style>
+</head>
+<body class="">
+
+<!-- ══════════════════════ FRONT ══════════════════════ -->
+<section class="sheet">
+  <div class="trim"></div><div class="safe"></div>
+
+  <div class="cap front-cap">
+    <div class="diecut"></div>
+    <img class="logo" src="assets/logo-white.png" alt="Wave Window Cleaning" />
+    <div class="tagline">St. George &middot; Utah</div>
+  </div>
+
+  <div class="lead">
+    <div class="headline">Cleaner Windows.<br><span class="hl">A Brighter Home.</span></div>
+    <div class="subhead">Professional window cleaning from a local St. George owner who treats your home like his own.</div>
+    <div class="trustline">
+      <span class="stars">★★★★★</span><span>5.0 on Google</span><span class="dot">&bull;</span><span class="muted">Locally Owned &amp; Insured</span>
+    </div>
+  </div>
+
+  <div class="photo">
+    <img src="assets/teancum.jpg" alt="Teancum, owner of Wave Window Cleaning, with his water-fed pole" />
+    <div class="name">
+      <b>Hi, I&rsquo;m Teancum &mdash; owner of Wave.</b>
+      <span>We promise a 5-star job every time!</span>
+    </div>
+  </div>
+
+  <div class="offer">
+    <div class="eyebrow">New Customer Offer</div>
+    <div class="big">FREE Screen Cleaning</div>
+    <div class="sub">with any exterior window cleaning</div>
+  </div>
+
+  <div class="cta">
+    <div class="txt">
+      <div class="label">Call or text for a free quote</div>
+      <div class="phone">(435) 229-5674</div>
+      <div class="guar">100% Satisfaction Guaranteed &middot; cleanwavewindows.com</div>
+    </div>
+    <div class="qr">
+      <img src="assets/qr-a.png" alt="Scan to get your free quote" />
+      <span>Scan to<br>get started</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ BACK ══════════════════════ -->
+<section class="sheet">
+  <div class="trim"></div><div class="safe"></div>
+
+  <div class="cap back-cap">
+    <div class="diecut"></div>
+    <img class="logo" src="assets/logo-white.png" alt="Wave Window Cleaning" />
+    <h2>Why St. George Homeowners Choose Wave</h2>
+    <div class="sub">Trusted, local, and five-star every time.</div>
+  </div>
+
+  <div class="backbody">
+    <div class="section-label">Real Reviews</div>
+    <div class="reviews">
+      <div class="rev"><span class="stars">★★★★★</span><p>&ldquo;Extremely kind, professional, and pays attention to detail!&rdquo;</p><b>&mdash; Chantel M., St. George</b></div>
+      <div class="rev"><span class="stars">★★★★★</span><p>&ldquo;Wow — my windows look brand new!&rdquo;</p><b>&mdash; Audrey P., St. George</b></div>
+      <div class="rev"><span class="stars">★★★★★</span><p>&ldquo;So thorough — our windows and sills are spotless.&rdquo;</p><b>&mdash; Sara F., St. George</b></div>
+    </div>
+
+    <div class="proof-sec">
+      <div class="section-label">Hard-Water Stains, Gone</div>
+      <div class="ba">
+        <figure class="before"><figcaption>Before</figcaption><img src="assets/proof-before.png" alt="Window with hard-water stains before" /></figure>
+        <figure class="after"><figcaption>After</figcaption><img src="assets/proof-after.png" alt="Crystal-clear window after" /></figure>
+      </div>
+    </div>
+
+    <div class="svc-sec">
+      <div class="section-label">What We Clean</div>
+      <div class="svcs">
+        <div class="svc">Residential Windows</div>
+        <div class="svc">Screen Cleaning</div>
+        <div class="svc">Hard-Water Removal</div>
+        <div class="svc">Solar Panels</div>
+        <div class="svc">Commercial Windows</div>
+        <div class="svc">Tracks, Frames &amp; Sills</div>
+      </div>
+    </div>
+
+    <div class="guarantee">
+      <div class="seal">100%</div>
+      <div class="gtxt">
+        <b>100% Satisfaction Guarantee</b>
+        <p>Love your windows, or we&rsquo;ll make it right.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="backcta">
+    <div class="txt">
+      <div class="lead-q">Ready for cleaner, brighter windows?</div>
+      <div class="label">Call or text for a free quote</div>
+      <div class="phone">(435) 229-5674</div>
+    </div>
+    <div class="qr">
+      <img src="assets/qr-a.png" alt="Scan to get your free quote" />
+      <span>Scan to<br>get started</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
