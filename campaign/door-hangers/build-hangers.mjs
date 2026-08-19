@@ -304,7 +304,7 @@ function page(v) {
         <div class="svc">Screen Cleaning</div>
         <div class="svc">Hard-Water Removal</div>
         <div class="svc">Solar Panels</div>
-        <div class="svc">Commercial Windows</div>
+        <div class="svc">Gutter Cleaning</div>
         <div class="svc">Tracks, Frames &amp; Sills</div>
       </div>
     </div>

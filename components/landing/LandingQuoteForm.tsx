@@ -9,6 +9,7 @@ const SERVICES = [
   'Screen Cleaning',
   'Hard Water Removal',
   'Solar Panels',
+  'Gutter Cleaning',
 ]
 
 interface Props {
