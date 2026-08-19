@@ -267,7 +267,7 @@ function page(v) {
     </div>
     <div class="qr">
       <img src="${v.qr}" alt="Scan to get your free quote" />
-      <span>Scan to<br>get started</span>
+      <span>Scan for<br>a free quote</span>
     </div>
   </div>
 </section>
@@ -326,7 +326,7 @@ function page(v) {
     </div>
     <div class="qr">
       <img src="${v.qr}" alt="Scan to get your free quote" />
-      <span>Scan to<br>get started</span>
+      <span>Scan for<br>a free quote</span>
     </div>
   </div>
 </section>

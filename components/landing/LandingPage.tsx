@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
-  Phone, Star, CheckCircle2, MapPin, BadgeCheck, Sparkles,
+  Phone, Star, CheckCircle2, MapPin, Sparkles,
 } from 'lucide-react'
 import LandingQuoteForm from './LandingQuoteForm'
 
@@ -154,38 +154,6 @@ export default function LandingPage({ offer }: { offer: OfferConfig }) {
                 <p className="mt-3 font-bold text-charcoal text-sm">{r.name} <span className="font-normal text-muted">· St. George</span></p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Meet Teancum + guarantee (short) ──────────────────────────── */}
-      <section className="pb-4">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 grid md:grid-cols-5 gap-8 items-center">
-          <div className="md:col-span-2">
-            <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/5] max-w-[260px] mx-auto">
-              <Image
-                src="/hero-me.jpg"
-                alt="Teancum, owner of Wave Window Cleaning"
-                fill
-                className="object-cover"
-                style={{ objectPosition: 'center 18%' }}
-                sizes="260px"
-              />
-            </div>
-          </div>
-          <div className="md:col-span-3">
-            <h2 className="text-2xl font-black text-charcoal tracking-tight">Meet Teancum</h2>
-            <p className="mt-3 text-muted text-lg leading-relaxed">
-              I show up when I say I will, respect your home, and I&apos;m not done until your
-              windows are perfect. That&apos;s the five-star experience my neighbors count on.
-            </p>
-            <div className="mt-5 flex items-start gap-3 bg-surface border border-gray-100 rounded-2xl p-4">
-              <BadgeCheck size={22} className="text-green-600 shrink-0 mt-0.5" />
-              <p className="text-charcoal text-sm leading-relaxed">
-                <strong>100% Satisfaction Guarantee.</strong> If a window isn&apos;t perfect, I&apos;ll
-                re-clean it free — or you don&apos;t pay.
-              </p>
-            </div>
           </div>
         </div>
       </section>
