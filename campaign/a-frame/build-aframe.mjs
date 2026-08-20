@@ -82,50 +82,46 @@ function page() {
   body.proof .trim{ display:block; position:absolute; inset:0.125in; border:2px dashed rgba(255,80,80,.7); z-index:99; }
   body.proof .safe{ display:block; position:absolute; inset:1.125in; border:2px dashed rgba(90,180,255,.7); z-index:99; }
 
-  /* ── TOP: brand + social proof ─────────────────────────────────────── */
-  .top{ width:100%; display:flex; flex-direction:column; align-items:center; }
-  .brandmark img{ width:15in; height:auto; display:block; }
-  .stars{ margin-top:0.5in; font-size:34pt; letter-spacing:10px; color:#fff; }
-  .trust{ margin-top:0.22in; font-size:30pt; font-weight:700; color:rgba(255,255,255,.92); letter-spacing:.01em; }
-
-  /* ── MIDDLE: conversion hook ───────────────────────────────────────── */
-  .hook{
-    width:100%; font-size:70pt; font-weight:900; line-height:1.02; letter-spacing:-.02em; color:#fff;
+  /* ── TOP: banner + rule + logo ─────────────────────────────────────── */
+  .head{ width:100%; }
+  .header{
+    width:100%; text-align:center; font-size:60pt; font-weight:900;
+    letter-spacing:.03em; text-transform:uppercase; color:#fff; line-height:1.0;
   }
+  .rule{ width:100%; height:0.05in; background:rgba(255,255,255,.9); margin-top:0.45in; border-radius:2px; }
+  .brandmark img{ width:14in; height:auto; display:block; margin:0 auto; }
 
-  /* ── BOTTOM: CTA (left) + GIANT QR anchored bottom-right ───────────── */
-  .bottom{ width:100%; display:flex; align-items:flex-end; justify-content:space-between; gap:0.7in; }
-  .bl{ flex:1 1 auto; text-align:left; }
-  .bl .scan-cta{ font-size:56pt; font-weight:900; line-height:1.02; letter-spacing:-.02em; color:#fff; }
-  .bl .scan-cta .arrow{ color:#fff; font-weight:900; }
-  .bl .or{ margin-top:0.5in; font-size:28pt; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.7); }
-  .bl .phone{ margin-top:0.14in; font-size:82pt; font-weight:900; letter-spacing:-.035em; line-height:0.95; white-space:nowrap; color:#fff; }
-  .qrwrap{
-    flex:0 0 auto; background:#fff; border-radius:0.35in; padding:0.4in;
-    box-shadow:0 22px 55px rgba(0,0,0,.4);
-  }
-  .qrwrap .qr{ width:11.2in; height:11.2in; display:block; }
+  /* ── BOTTOM: phone (left) + QR (right of centerline) ───────────────── */
+  .row{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:0.7in; }
+  .phoneblock{ flex:1 1 auto; text-align:center; }
+  .phoneblock .lbl{ font-size:30pt; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.8); }
+  .phoneblock .phone{ margin-top:0.2in; font-size:74pt; font-weight:900; letter-spacing:-.03em; line-height:1.0; color:#fff; white-space:nowrap; }
+  .qrblock{ flex:0 0 auto; display:flex; flex-direction:column; align-items:center; }
+  .qrbox{ background:#fff; border-radius:0.32in; padding:0.36in; box-shadow:0 22px 55px rgba(0,0,0,.4); }
+  .qrbox img{ width:9in; height:9in; display:block; }
+  .qrblock .qrlbl{ margin-top:0.3in; font-size:28pt; font-weight:700; color:#fff; }
 </style>
 </head>
 <body class="{{BODYCLASS}}">
   <div class="sign">
     <div class="trim"></div><div class="safe"></div>
 
-    <div class="top">
-      <div class="brandmark"><img src="assets/logo-white.png" alt="Wave Window Cleaning" /></div>
-      <div class="stars">${STARS}</div>
-      <div class="trust">5.0 on Google &middot; Locally Owned &amp; Insured</div>
+    <div class="head">
+      <div class="header">Window Cleaning in Progress</div>
+      <div class="rule"></div>
     </div>
 
-    <div class="hook">We&rsquo;re cleaning your<br>neighbors&rsquo; windows!</div>
+    <div class="brandmark"><img src="assets/logo-white.png" alt="Wave Window Cleaning" /></div>
 
-    <div class="bottom">
-      <div class="bl">
-        <div class="scan-cta">Scan for your<br>FREE quote <span class="arrow">&rarr;</span></div>
-        <div class="or">or call / text</div>
+    <div class="row">
+      <div class="phoneblock">
+        <div class="lbl">Call or text</div>
         <div class="phone">${PHONE}</div>
       </div>
-      <div class="qrwrap"><img class="qr" src="assets/qr-aframe.png" alt="Scan for a free quote" /></div>
+      <div class="qrblock">
+        <div class="qrbox"><img src="assets/qr-aframe.png" alt="Scan for a free quote" /></div>
+        <div class="qrlbl">Scan for a free quote</div>
+      </div>
     </div>
   </div>
 </body>
