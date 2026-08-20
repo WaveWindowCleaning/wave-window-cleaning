@@ -96,16 +96,18 @@ export default function LandingPage({ offer }: { offer: OfferConfig }) {
               100% satisfaction guarantee.
             </p>
 
-            {/* Offer badge */}
-            <div className="mt-6 inline-flex items-center gap-3 bg-white rounded-2xl px-5 py-3.5 shadow-xl">
-              <div className="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center shrink-0">
-                <Sparkles size={19} className="text-white" />
+            {/* Offer badge — only shown when an offer is configured */}
+            {offer.offerHeadline ? (
+              <div className="mt-6 inline-flex items-center gap-3 bg-white rounded-2xl px-5 py-3.5 shadow-xl">
+                <div className="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center shrink-0">
+                  <Sparkles size={19} className="text-white" />
+                </div>
+                <div>
+                  <p className="text-brand-navy font-black text-base leading-none">{offer.offerHeadline}</p>
+                  <p className="text-muted text-sm mt-1">{offer.offerSub}</p>
+                </div>
               </div>
-              <div>
-                <p className="text-brand-navy font-black text-base leading-none">{offer.offerHeadline}</p>
-                <p className="text-muted text-sm mt-1">{offer.offerSub}</p>
-              </div>
-            </div>
+            ) : null}
 
             {/* Trust chips */}
             <div className="flex flex-wrap gap-x-5 gap-y-2 mt-6">

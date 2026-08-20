@@ -32,11 +32,18 @@ const WHITE = '#FFFFFF'
  */
 const TARGETS = [
   {
-    // Dedicated, offer-specific landing page (form in hero). Now deployed live.
+    // Door hanger — offer-specific landing page (form in hero).
     slug: 'lp-a-free-screens',
     url:
       'https://cleanwavewindows.com/lp/free-screens' +
       '?utm_source=doorhanger&utm_medium=print&utm_campaign=eddm-stgeorge-2026&utm_content=version-a-free-screens',
+  },
+  {
+    // A-frame curbside sign — plain "request a free quote" landing (no offer).
+    slug: 'aframe-quote',
+    url:
+      'https://cleanwavewindows.com/lp/quote' +
+      '?utm_source=aframe&utm_medium=sign&utm_campaign=curbside-stgeorge-2026&utm_content=aframe-quote',
   },
 ]
 

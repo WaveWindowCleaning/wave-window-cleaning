@@ -138,7 +138,7 @@ function page() {
     <div class="bottom">
       <div class="cta">Get YOUR Free Quote Now!</div>
       <div class="phone">${PHONE}</div>
-      <div class="qrbox"><img src="assets/qr-a.png" alt="Scan for a free quote" /></div>
+      <div class="qrbox"><img src="assets/qr-aframe.png" alt="Scan for a free quote" /></div>
       <div class="scan">Scan for a free quote &middot; <span class="web">${SITE}</span></div>
     </div>
   </div>

@@ -136,8 +136,13 @@ export default function LandingQuoteForm({ variant, offer }: Props) {
         </h3>
         <p className="mt-3 text-muted leading-relaxed">
           Teancum will personally text or call you back{' '}
-          <strong className="text-charcoal">within a few hours</strong> with your free quote and
-          your <strong className="text-charcoal">{offer}</strong>.
+          <strong className="text-charcoal">within a few hours</strong> with your free quote
+          {offer ? (
+            <>
+              {' '}and your <strong className="text-charcoal">{offer}</strong>
+            </>
+          ) : null}
+          .
         </p>
         <div className="mt-8 bg-surface rounded-2xl p-5 border border-gray-100">
           <p className="text-sm text-muted mb-3">Want it done sooner? Call now:</p>
