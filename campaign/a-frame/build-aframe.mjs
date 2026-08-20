@@ -1,0 +1,161 @@
+/**
+ * Wave Window Cleaning — 24" x 36" A-frame (sidewalk sign) builder
+ * -----------------------------------------------------------------------------
+ * A curbside, phone-forward sign meant to be read from a passing car while
+ * Teancum works a job. One giant message: WHO + a local hook + a HUGE phone.
+ * Same artwork prints on both sides.
+ *
+ * Print spec (VistaPrint 24" x 36" A-frame):
+ *   Trim ......... 24 x 36 in
+ *   Bleed ........ 0.125 in each edge  ->  full page 24.25 x 36.25 in
+ *   Safety ....... ~1.0 in inside trim (frame lip covers the outer band)
+ *
+ * Convert to PDF/PNG with: node campaign/a-frame/generate-pdf.mjs
+ */
+import { writeFile } from 'node:fs/promises'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+const PHONE = '(435) 229-5674'
+const SITE = 'cleanwavewindows.com'
+const STARS = '\u2605\u2605\u2605\u2605\u2605'
+
+function page() {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<title>Wave Window Cleaning — A-frame</title>
+<style>
+  :root{
+    --navy:#1A3D54;
+    --navy-dark:#0F2535;
+    --navy-mid:#1E4F6B;
+    --accent:#4FB0E4;
+    --gold:#F6B41E;
+    --ink:#16202B;
+    --muted:#5E6E7A;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body{ font-family:'Inter',system-ui,-apple-system,sans-serif; }
+  @page{ size:24.25in 36.25in; margin:0; }
+
+  .sign{
+    width:24.25in; height:36.25in; position:relative; overflow:hidden;
+    background:linear-gradient(168deg,#0F2535 0%,#1A3D54 55%,#1E4F6B 100%);
+    color:#fff; text-align:center;
+    display:flex; flex-direction:column; align-items:center; justify-content:space-between;
+    /* 0.125in bleed + ~1.0in safe = 1.125in; use 1.4in for comfort */
+    padding:1.5in 1.5in 1.4in;
+  }
+
+  /* Subtle dot texture for depth (kept faint so it prints clean) */
+  .sign::before{
+    content:""; position:absolute; inset:0; opacity:.05; pointer-events:none;
+    background-image:radial-gradient(circle, #fff 2px, transparent 2px);
+    background-size:0.6in 0.6in;
+  }
+  .sign > *{ position:relative; z-index:1; }
+
+  /* Proof guides — only with <body class="proof"> */
+  .trim,.safe{ display:none; }
+  body.proof .trim{ display:block; position:absolute; inset:0.125in; border:2px dashed rgba(255,80,80,.7); z-index:99; }
+  body.proof .safe{ display:block; position:absolute; inset:1.125in; border:2px dashed rgba(90,180,255,.7); z-index:99; }
+
+  /* ── Brand ─────────────────────────────────────────────────────────── */
+  .brand{ display:flex; flex-direction:column; align-items:center; }
+  .logo{ width:14in; height:auto; display:block; }
+  .stars-row{
+    margin-top:0.35in; font-size:30pt; font-weight:800; letter-spacing:.01em;
+    display:flex; align-items:center; justify-content:center; gap:0.22in;
+  }
+  .stars-row .stars{ color:var(--gold); letter-spacing:6px; font-size:34pt; }
+  .stars-row .txt{ color:rgba(255,255,255,.92); }
+
+  /* ── Local hook ────────────────────────────────────────────────────── */
+  .hook{
+    font-size:66pt; font-weight:900; line-height:1.04; letter-spacing:-.01em;
+    max-width:20in;
+  }
+  .hook .accent{ color:var(--accent); }
+
+  /* ── Offer card ────────────────────────────────────────────────────── */
+  .offer{
+    background:#fff; color:var(--navy); border-radius:0.35in;
+    padding:0.55in 1.1in 0.7in; box-shadow:0 24px 60px rgba(0,0,0,.35);
+    border-top:0.16in solid var(--gold);
+  }
+  .offer .eyebrow{ font-size:26pt; letter-spacing:.26em; text-transform:uppercase; font-weight:800; color:var(--navy-mid); }
+  .offer .big{ font-size:78pt; font-weight:900; letter-spacing:-.02em; line-height:1.0; margin-top:0.14in; }
+  .offer .sub{ font-size:32pt; font-weight:700; color:var(--ink); margin-top:0.1in; }
+
+  /* ── Call CTA (the hero) ───────────────────────────────────────────── */
+  .cta{ display:flex; flex-direction:column; align-items:center; }
+  .cta .label{
+    font-size:40pt; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--accent);
+  }
+  .cta .phone{
+    font-size:150pt; font-weight:900; letter-spacing:-.03em; line-height:0.98;
+    margin-top:0.12in; white-space:nowrap; color:#fff;
+  }
+
+  /* ── QR + web ──────────────────────────────────────────────────────── */
+  .foot{ display:flex; align-items:center; justify-content:center; gap:0.5in; }
+  .foot img{ width:3.1in; height:3.1in; background:#fff; padding:0.14in; border-radius:0.2in; display:block; }
+  .foot .ftxt{ text-align:left; }
+  .foot .scan{ font-size:34pt; font-weight:800; color:#fff; line-height:1.1; }
+  .foot .web{ font-size:26pt; font-weight:600; color:rgba(255,255,255,.8); margin-top:0.1in; }
+</style>
+</head>
+<body class="{{BODYCLASS}}">
+  <div class="sign">
+    <div class="trim"></div><div class="safe"></div>
+
+    <div class="brand">
+      <img class="logo" src="assets/logo-white.png" alt="Wave Window Cleaning" />
+      <div class="stars-row">
+        <span class="stars">${STARS}</span>
+        <span class="txt">5.0 on Google &middot; Locally Owned</span>
+      </div>
+    </div>
+
+    <div class="hook">Now cleaning windows<br><span class="accent">in your neighborhood.</span></div>
+
+    <div class="offer">
+      <div class="eyebrow">New Customer Offer</div>
+      <div class="big">FREE Screen Cleaning</div>
+      <div class="sub">with any exterior window cleaning</div>
+    </div>
+
+    <div class="cta">
+      <div class="label">Call or text for a free quote</div>
+      <div class="phone">${PHONE}</div>
+    </div>
+
+    <div class="foot">
+      <img src="assets/qr-a.png" alt="Scan for a free quote" />
+      <div class="ftxt">
+        <div class="scan">Scan for a<br>free quote</div>
+        <div class="web">${SITE}</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`
+}
+
+async function run() {
+  const proof = process.env.PROOF === '1'
+  const html = page().replace('{{BODYCLASS}}', proof ? 'proof' : '')
+  await writeFile(join(__dirname, 'aframe.html'), html, 'utf8')
+  console.log(`\u2713 aframe.html${proof ? ' (proof guides ON)' : ''}`)
+  console.log('\nA-frame built. Next: node campaign/a-frame/generate-pdf.mjs')
+}
+
+run().catch((e) => { console.error(e); process.exit(1) })
