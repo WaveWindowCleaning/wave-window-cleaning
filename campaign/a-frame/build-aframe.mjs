@@ -1,9 +1,11 @@
 /**
  * Wave Window Cleaning — 24" x 36" A-frame (sidewalk sign) builder
  * -----------------------------------------------------------------------------
- * A curbside, phone-forward sign meant to be read from a passing car while
- * Teancum works a job. One giant message: WHO + a local hook + a HUGE phone.
- * Same artwork prints on both sides.
+ * Curbside, phone-forward sign read from a passing car while Teancum works a job.
+ *   Top 1/3    → SOCIAL PROOF headline ("cleaning your neighbors' windows")
+ *   Middle 1/3 → Brand: COMMERCIAL icon · WAVE logo · RESIDENTIAL icon
+ *   Bottom 1/3 → CTA callout + HUGE phone + large scannable QR
+ * Same artwork prints on both sides. Strict palette: navy + high-contrast white.
  *
  * Print spec (VistaPrint 24" x 36" A-frame):
  *   Trim ......... 24 x 36 in
@@ -18,9 +20,27 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
+// Real, working business number (NOT the 555 placeholder from the template).
 const PHONE = '(435) 229-5674'
 const SITE = 'cleanwavewindows.com'
 const STARS = '\u2605\u2605\u2605\u2605\u2605'
+
+// Clean, thin-line icons that echo the wave logo's stroke aesthetic.
+const ICON_COMMERCIAL = `
+  <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="13" y="8" width="38" height="50"/>
+    <line x1="8" y1="58" x2="56" y2="58"/>
+    <rect x="20" y="15" width="7" height="7"/><rect x="37" y="15" width="7" height="7"/>
+    <rect x="20" y="27" width="7" height="7"/><rect x="37" y="27" width="7" height="7"/>
+    <rect x="27" y="43" width="10" height="15"/>
+  </svg>`
+const ICON_RESIDENTIAL = `
+  <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 31 L32 10 L56 31"/>
+    <path d="M15 27 V57 H49 V27"/>
+    <rect x="28" y="42" width="8" height="15"/>
+    <rect x="20" y="34" width="7" height="7"/><rect x="37" y="34" width="7" height="7"/>
+  </svg>`
 
 function page() {
   return `<!DOCTYPE html>
@@ -36,10 +56,6 @@ function page() {
     --navy:#1A3D54;
     --navy-dark:#0F2535;
     --navy-mid:#1E4F6B;
-    --accent:#4FB0E4;
-    --gold:#F6B41E;
-    --ink:#16202B;
-    --muted:#5E6E7A;
   }
   *{ margin:0; padding:0; box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
   html,body{ font-family:'Inter',system-ui,-apple-system,sans-serif; }
@@ -50,11 +66,10 @@ function page() {
     background:linear-gradient(168deg,#0F2535 0%,#1A3D54 55%,#1E4F6B 100%);
     color:#fff; text-align:center;
     display:flex; flex-direction:column; align-items:center; justify-content:space-between;
-    /* 0.125in bleed + ~1.0in safe = 1.125in; use 1.4in for comfort */
-    padding:1.5in 1.5in 1.4in;
+    /* 0.125in bleed + ~1.0in safe = 1.125in; use 1.5in for comfortable negative space */
+    padding:1.6in 1.5in 1.5in;
   }
-
-  /* Subtle dot texture for depth (kept faint so it prints clean) */
+  /* Faint texture for depth (prints clean) */
   .sign::before{
     content:""; position:absolute; inset:0; opacity:.05; pointer-events:none;
     background-image:radial-gradient(circle, #fff 2px, transparent 2px);
@@ -67,83 +82,64 @@ function page() {
   body.proof .trim{ display:block; position:absolute; inset:0.125in; border:2px dashed rgba(255,80,80,.7); z-index:99; }
   body.proof .safe{ display:block; position:absolute; inset:1.125in; border:2px dashed rgba(90,180,255,.7); z-index:99; }
 
-  /* ── Brand ─────────────────────────────────────────────────────────── */
-  .brand{ display:flex; flex-direction:column; align-items:center; }
-  .logo{ width:14in; height:auto; display:block; }
-  .stars-row{
-    margin-top:0.35in; font-size:30pt; font-weight:800; letter-spacing:.01em;
-    display:flex; align-items:center; justify-content:center; gap:0.22in;
-  }
-  .stars-row .stars{ color:var(--gold); letter-spacing:6px; font-size:34pt; }
-  .stars-row .txt{ color:rgba(255,255,255,.92); }
-
-  /* ── Local hook ────────────────────────────────────────────────────── */
-  .hook{
-    font-size:66pt; font-weight:900; line-height:1.04; letter-spacing:-.01em;
-    max-width:20in;
-  }
-  .hook .accent{ color:var(--accent); }
-
-  /* ── Offer card ────────────────────────────────────────────────────── */
-  .offer{
-    background:#fff; color:var(--navy); border-radius:0.35in;
-    padding:0.55in 1.1in 0.7in; box-shadow:0 24px 60px rgba(0,0,0,.35);
-    border-top:0.16in solid var(--gold);
-  }
-  .offer .eyebrow{ font-size:26pt; letter-spacing:.26em; text-transform:uppercase; font-weight:800; color:var(--navy-mid); }
-  .offer .big{ font-size:78pt; font-weight:900; letter-spacing:-.02em; line-height:1.0; margin-top:0.14in; }
-  .offer .sub{ font-size:32pt; font-weight:700; color:var(--ink); margin-top:0.1in; }
-
-  /* ── Call CTA (the hero) ───────────────────────────────────────────── */
-  .cta{ display:flex; flex-direction:column; align-items:center; }
-  .cta .label{
-    font-size:40pt; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
-    color:var(--accent);
-  }
-  .cta .phone{
-    font-size:150pt; font-weight:900; letter-spacing:-.03em; line-height:0.98;
-    margin-top:0.12in; white-space:nowrap; color:#fff;
+  /* ── TOP: social proof ─────────────────────────────────────────────── */
+  .top{ width:100%; }
+  .stars{ font-size:40pt; letter-spacing:14px; color:#fff; }
+  .headline{
+    margin-top:0.3in; font-size:76pt; font-weight:900; line-height:1.02; letter-spacing:-.02em;
+    color:#fff; max-width:21in; margin-left:auto; margin-right:auto;
   }
 
-  /* ── QR + web ──────────────────────────────────────────────────────── */
-  .foot{ display:flex; align-items:center; justify-content:center; gap:0.5in; }
-  .foot img{ width:3.1in; height:3.1in; background:#fff; padding:0.14in; border-radius:0.2in; display:block; }
-  .foot .ftxt{ text-align:left; }
-  .foot .scan{ font-size:34pt; font-weight:800; color:#fff; line-height:1.1; }
-  .foot .web{ font-size:26pt; font-weight:600; color:rgba(255,255,255,.8); margin-top:0.1in; }
+  /* ── MIDDLE: brand + flanking services ─────────────────────────────── */
+  .mid{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:0.6in;
+  }
+  .svc{ flex:0 0 auto; width:4in; display:flex; flex-direction:column; align-items:center; }
+  .svc svg{ width:2.1in; height:2.1in; display:block; }
+  .svc .lbl{ margin-top:0.28in; font-size:27pt; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#fff; }
+  .brandmark{ flex:1 1 auto; display:flex; justify-content:center; }
+  .brandmark img{ width:11.5in; height:auto; display:block; }
+
+  /* ── BOTTOM: CTA + contact ─────────────────────────────────────────── */
+  .bottom{ width:100%; display:flex; flex-direction:column; align-items:center; }
+  .cta{
+    background:#fff; color:var(--navy); border-radius:0.28in;
+    padding:0.32in 0.9in; font-size:46pt; font-weight:900; letter-spacing:-.01em;
+    box-shadow:0 18px 44px rgba(0,0,0,.34);
+  }
+  .phone{
+    margin-top:0.5in; font-size:150pt; font-weight:900; letter-spacing:-.035em; line-height:0.95;
+    white-space:nowrap; color:#fff;
+  }
+  .qrbox{
+    margin-top:0.55in; background:#fff; border-radius:0.28in; padding:0.28in;
+    box-shadow:0 18px 44px rgba(0,0,0,.34);
+  }
+  .qrbox img{ width:5in; height:5in; display:block; }
+  .scan{ margin-top:0.3in; font-size:30pt; font-weight:700; color:#fff; letter-spacing:.01em; }
+  .scan .web{ font-weight:500; color:rgba(255,255,255,.82); }
 </style>
 </head>
 <body class="{{BODYCLASS}}">
   <div class="sign">
     <div class="trim"></div><div class="safe"></div>
 
-    <div class="brand">
-      <img class="logo" src="assets/logo-white.png" alt="Wave Window Cleaning" />
-      <div class="stars-row">
-        <span class="stars">${STARS}</span>
-        <span class="txt">5.0 on Google &middot; Locally Owned</span>
-      </div>
+    <div class="top">
+      <div class="stars">${STARS}</div>
+      <div class="headline">We&rsquo;re currently cleaning your neighbors&rsquo; windows!</div>
     </div>
 
-    <div class="hook">Now cleaning windows<br><span class="accent">in your neighborhood.</span></div>
-
-    <div class="offer">
-      <div class="eyebrow">New Customer Offer</div>
-      <div class="big">FREE Screen Cleaning</div>
-      <div class="sub">with any exterior window cleaning</div>
+    <div class="mid">
+      <div class="svc">${ICON_COMMERCIAL}<div class="lbl">Commercial</div></div>
+      <div class="brandmark"><img src="assets/logo-white.png" alt="Wave Window Cleaning" /></div>
+      <div class="svc">${ICON_RESIDENTIAL}<div class="lbl">Residential</div></div>
     </div>
 
-    <div class="cta">
-      <div class="label">Call or text for a free quote</div>
+    <div class="bottom">
+      <div class="cta">Get YOUR Free Quote Now!</div>
       <div class="phone">${PHONE}</div>
-    </div>
-
-    <div class="foot">
-      <img src="assets/qr-a.png" alt="Scan for a free quote" />
-      <div class="ftxt">
-        <div class="scan">Scan for a<br>free quote</div>
-        <div class="web">${SITE}</div>
-      </div>
+      <div class="qrbox"><img src="assets/qr-a.png" alt="Scan for a free quote" /></div>
+      <div class="scan">Scan for a free quote &middot; <span class="web">${SITE}</span></div>
     </div>
   </div>
 </body>
