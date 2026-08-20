@@ -84,13 +84,19 @@ async function run() {
   const poleMeta = await sharp(SRC.pole).metadata()
   const cropW = Math.round(poleMeta.width * 0.86)   // trim ~14% of right background
   const cropH = Math.round(poleMeta.height * 0.80)  // trim below the waist
+  // The source is a modest ~1024px image, so at print size it prints soft.
+  // Upscale 2x with a high-quality filter + a gentle sharpen to maximize
+  // perceived crispness (won't invent detail, but noticeably cleaner for print).
+  const UPSCALE = 2
   const framed = () =>
     sharp(SRC.pole)
       .extract({ left: 0, top: 0, width: cropW, height: cropH })
-      .jpeg({ quality: 94 })
+      .resize({ width: cropW * UPSCALE, kernel: 'lanczos3' })
+      .sharpen({ sigma: 1.1 })
+      .jpeg({ quality: 96 })
   await framed().toFile(join(PUBLIC, 'teancum.jpg'))
   await framed().toFile(join(ASSETS_OUT, 'teancum.jpg'))
-  console.log(`✓ teancum.jpg reframed to ${cropW}x${cropH} (full pole + brush kept)`)
+  console.log(`✓ teancum.jpg reframed + upscaled to ${cropW * UPSCALE}x${cropH * UPSCALE} (sharpened for print)`)
 
   await copyFile(SRC.before, join(ASSETS_OUT, 'proof-before.png'))
   await copyFile(SRC.after, join(ASSETS_OUT, 'proof-after.png'))
