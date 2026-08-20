@@ -106,15 +106,21 @@ export default function LandingQuoteForm({ variant, offer }: Props) {
       utm,
     }
     try {
-      await fetch('/api/lead', {
+      const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok || data.ok === false) {
+        setErrors({
+          name: data.error || 'Could not send. Please call (435) 229-5674.',
+        })
+        return
+      }
       setSubmitted(true)
     } catch {
-      // Never block the visitor — show success regardless.
-      setSubmitted(true)
+      setErrors({ name: 'Could not send. Please call (435) 229-5674.' })
     } finally {
       setSubmitting(false)
     }
