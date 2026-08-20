@@ -37,42 +37,29 @@
   body.proof .trim{ display:block; position:absolute; inset:0.125in; border:2px dashed rgba(255,80,80,.7); z-index:99; }
   body.proof .safe{ display:block; position:absolute; inset:1.125in; border:2px dashed rgba(90,180,255,.7); z-index:99; }
 
-  /* ── TOP: social proof ─────────────────────────────────────────────── */
-  .top{ width:100%; }
-  .stars{ font-size:40pt; letter-spacing:14px; color:#fff; }
-  .headline{
-    margin-top:0.3in; font-size:76pt; font-weight:900; line-height:1.02; letter-spacing:-.02em;
-    color:#fff; max-width:21in; margin-left:auto; margin-right:auto;
+  /* ── TOP: brand + social proof ─────────────────────────────────────── */
+  .top{ width:100%; display:flex; flex-direction:column; align-items:center; }
+  .brandmark img{ width:15in; height:auto; display:block; }
+  .stars{ margin-top:0.5in; font-size:34pt; letter-spacing:10px; color:#fff; }
+  .trust{ margin-top:0.22in; font-size:30pt; font-weight:700; color:rgba(255,255,255,.92); letter-spacing:.01em; }
+
+  /* ── MIDDLE: conversion hook ───────────────────────────────────────── */
+  .hook{
+    width:100%; font-size:70pt; font-weight:900; line-height:1.02; letter-spacing:-.02em; color:#fff;
   }
 
-  /* ── MIDDLE: brand + flanking services ─────────────────────────────── */
-  .mid{
-    width:100%; display:flex; align-items:center; justify-content:space-between; gap:0.6in;
+  /* ── BOTTOM: CTA (left) + GIANT QR anchored bottom-right ───────────── */
+  .bottom{ width:100%; display:flex; align-items:flex-end; justify-content:space-between; gap:0.7in; }
+  .bl{ flex:1 1 auto; text-align:left; }
+  .bl .scan-cta{ font-size:56pt; font-weight:900; line-height:1.02; letter-spacing:-.02em; color:#fff; }
+  .bl .scan-cta .arrow{ color:#fff; font-weight:900; }
+  .bl .or{ margin-top:0.5in; font-size:28pt; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.7); }
+  .bl .phone{ margin-top:0.14in; font-size:82pt; font-weight:900; letter-spacing:-.035em; line-height:0.95; white-space:nowrap; color:#fff; }
+  .qrwrap{
+    flex:0 0 auto; background:#fff; border-radius:0.35in; padding:0.4in;
+    box-shadow:0 22px 55px rgba(0,0,0,.4);
   }
-  .svc{ flex:0 0 auto; width:4in; display:flex; flex-direction:column; align-items:center; }
-  .svc svg{ width:2.1in; height:2.1in; display:block; }
-  .svc .lbl{ margin-top:0.28in; font-size:27pt; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#fff; }
-  .brandmark{ flex:1 1 auto; display:flex; justify-content:center; }
-  .brandmark img{ width:11.5in; height:auto; display:block; }
-
-  /* ── BOTTOM: CTA + contact ─────────────────────────────────────────── */
-  .bottom{ width:100%; display:flex; flex-direction:column; align-items:center; }
-  .cta{
-    background:#fff; color:var(--navy); border-radius:0.28in;
-    padding:0.32in 0.9in; font-size:46pt; font-weight:900; letter-spacing:-.01em;
-    box-shadow:0 18px 44px rgba(0,0,0,.34);
-  }
-  .phone{
-    margin-top:0.5in; font-size:150pt; font-weight:900; letter-spacing:-.035em; line-height:0.95;
-    white-space:nowrap; color:#fff;
-  }
-  .qrbox{
-    margin-top:0.55in; background:#fff; border-radius:0.28in; padding:0.28in;
-    box-shadow:0 18px 44px rgba(0,0,0,.34);
-  }
-  .qrbox img{ width:5in; height:5in; display:block; }
-  .scan{ margin-top:0.3in; font-size:30pt; font-weight:700; color:#fff; letter-spacing:.01em; }
-  .scan .web{ font-weight:500; color:rgba(255,255,255,.82); }
+  .qrwrap .qr{ width:11.2in; height:11.2in; display:block; }
 </style>
 </head>
 <body class="">
@@ -80,34 +67,20 @@
     <div class="trim"></div><div class="safe"></div>
 
     <div class="top">
+      <div class="brandmark"><img src="assets/logo-white.png" alt="Wave Window Cleaning" /></div>
       <div class="stars">★★★★★</div>
-      <div class="headline">We&rsquo;re currently cleaning your neighbors&rsquo; windows!</div>
+      <div class="trust">5.0 on Google &middot; Locally Owned &amp; Insured</div>
     </div>
 
-    <div class="mid">
-      <div class="svc">
-  <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="13" y="8" width="38" height="50"/>
-    <line x1="8" y1="58" x2="56" y2="58"/>
-    <rect x="20" y="15" width="7" height="7"/><rect x="37" y="15" width="7" height="7"/>
-    <rect x="20" y="27" width="7" height="7"/><rect x="37" y="27" width="7" height="7"/>
-    <rect x="27" y="43" width="10" height="15"/>
-  </svg><div class="lbl">Commercial</div></div>
-      <div class="brandmark"><img src="assets/logo-white.png" alt="Wave Window Cleaning" /></div>
-      <div class="svc">
-  <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M8 31 L32 10 L56 31"/>
-    <path d="M15 27 V57 H49 V27"/>
-    <rect x="28" y="42" width="8" height="15"/>
-    <rect x="20" y="34" width="7" height="7"/><rect x="37" y="34" width="7" height="7"/>
-  </svg><div class="lbl">Residential</div></div>
-    </div>
+    <div class="hook">We&rsquo;re cleaning your<br>neighbors&rsquo; windows!</div>
 
     <div class="bottom">
-      <div class="cta">Get YOUR Free Quote Now!</div>
-      <div class="phone">(435) 229-5674</div>
-      <div class="qrbox"><img src="assets/qr-aframe.png" alt="Scan for a free quote" /></div>
-      <div class="scan">Scan for a free quote &middot; <span class="web">cleanwavewindows.com</span></div>
+      <div class="bl">
+        <div class="scan-cta">Scan for your<br>FREE quote <span class="arrow">&rarr;</span></div>
+        <div class="or">or call / text</div>
+        <div class="phone">(435) 229-5674</div>
+      </div>
+      <div class="qrwrap"><img class="qr" src="assets/qr-aframe.png" alt="Scan for a free quote" /></div>
     </div>
   </div>
 </body>
