@@ -38,3 +38,45 @@ input[type='range']::-webkit-slider-thumb {
 input[type='range'].accent-navy::-webkit-slider-thumb {
   background: #1A3D54;
 }
+
+/* Google reviews marquee — scrolls right to left, pauses on hover */
+@keyframes review-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.review-marquee-mask {
+  overflow: hidden;
+}
+
+.review-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1.25rem;
+  padding: 0 1.25rem;
+  animation: review-marquee 55s linear infinite;
+  will-change: transform;
+}
+
+.review-marquee-mask:hover .review-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-marquee-track {
+    animation: none;
+    overflow-x: auto;
+    max-width: 100%;
+    width: 100%;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+  }
+
+  .review-marquee-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .review-marquee-clone {
+    display: none;
+  }
+}

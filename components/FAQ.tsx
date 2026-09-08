@@ -22,10 +22,6 @@ const faqs = [
     a: 'Most single-story homes take 60–90 minutes. Two-story or larger homes average 2–3 hours. We always confirm an estimated time window when scheduling so you can plan your day.',
   },
   {
-    q: 'Do you offer recurring maintenance plans?',
-    a: 'Yes — monthly, bi-monthly, and quarterly maintenance plans are available with a loyalty discount. Regular customers also receive scheduling priority during our peak season.',
-  },
-  {
     q: '¿Hablan español? / Do you offer service in Spanish?',
     a: 'Sí, hablamos español. Our team is fully bilingual and happy to conduct your entire appointment — from estimate through service — in Spanish. Simply request it when booking.',
   },

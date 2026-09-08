@@ -26,7 +26,7 @@ const services = [
     title: 'Commercial Window Cleaning',
     desc: 'First impressions matter. Scheduled maintenance cleaning for storefronts, offices, and small commercial buildings throughout the greater St. George and Washington County area.',
     price: 'Custom quote',
-    detail: 'Recurring maintenance plans available',
+    detail: 'Storefronts, offices, and small commercial buildings',
     showPrice: true,
   },
   {
