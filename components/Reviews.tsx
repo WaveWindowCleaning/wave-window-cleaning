@@ -4,46 +4,20 @@ import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 
 const reviews = [
-  {
-    name: 'Benjamin Barrus',
-    location: 'St. George, UT',
-    text: 'Excellent work! He got rid of all of the hard water on my basement windows which had been there for years! Also very nice man! Speechless!',
-  },
-  {
-    name: 'Connie Wagner',
-    location: 'St. George, UT',
-    text: 'Wave Window Cleaning is by far the best! He was professional, punctual, knowledgeable and efficient. He pays attention to detail. I have and will recommend this service.',
-  },
-  {
-    name: 'Joanne Austin',
-    location: 'St. George, UT',
-    text: "Teancum was on time, hard working and polite. He went the extra mile to be helpful. He's a definite recommend.",
-  },
-  {
-    name: 'Chantel M.',
-    location: 'St. George, UT',
-    text: 'Very nice guy! Extremely kind, clean cut and professional. Pays attention to details! Highly recommend.',
-  },
-  {
-    name: 'Audrey P.',
-    location: 'St. George, UT',
-    text: 'Wow my windows look brand new! They were so nice and professional! Thank you so much! Will definitely be having them come back regularly!',
-  },
-  {
-    name: 'Sara F.',
-    location: 'St. George, UT',
-    text: 'Teancum is very thorough with the window cleaning. Our windows and sills are spotless and squeaky clean. He is well mannered and professional with the service. We are very satisfied!',
-  },
-  {
-    name: 'Steve C.',
-    location: 'St. George, UT',
-    text: 'Very polite, diligent, and very professional — which is hard to find these days.',
-  },
-  {
-    name: 'Jan',
-    location: 'St. George, UT',
-    text: "Meticulous. He even got a window clean we never could ourselves. We'll use him from now on!",
-  },
+  { name: 'Benjamin B.', text: 'Excellent work! He got rid of all of the hard water on my basement windows which had been there for years! Also very nice man! Speechless!' },
+  { name: 'Connie W.', text: 'Wave Window Cleaning is by far the best! He was professional, punctual, knowledgeable and efficient. He pays attention to detail. I have and will recommend this service.' },
+  { name: 'Pamelia S.', text: 'I highly recommend this company. They recently cleaned my solar panels and I can seriously see an efficiency difference already.' },
+  { name: 'Audrey P.', text: 'Wow my windows look brand new! They were so nice and professional! Thank you so much! Will definitely be having them come back regularly!' },
+  { name: 'Steven D.', text: 'Friendly, efficient and with quality work! I have a large house with custom wood doors and windows. They were careful and did no damage.' },
+  { name: 'Joanne A.', text: "Teancom was on time, hard working and polite. He went the extra mile to be helpful. He's a definite recommend." },
+  { name: 'Cameron S.', text: 'My windows have never been this clean. My wife was shocked at how much of an improvement this made. Great service. I would highly recommend to anyone.' },
+  { name: 'Brad H.', text: 'These guys did an excellent job! They went the extra mile to clean the whole window, frame and screen! Thank you!' },
+  { name: 'Sara F.', text: 'Teancum is very thorough with the window cleaning. Our windows and sills are spotless and squeaky clean. He is well mannered and professional with the service. We are very satisfied!' },
+  { name: 'Scott A.', text: 'Wave Window Cleaning did an excellent job of cleaning my solar panels. They were quick, efficient and reasonable priced.' },
+  { name: 'Jan', text: 'Teancum was very easy to work with. He was meticulous and even got one of our windows clean that we have not been able to do ourselves. We will continue to use him from now on!' },
+  { name: 'Joy W.', text: 'Wave Window cleaned all my windows today. Fabulous job…even cleaned the screens! I would recommend their service for clean windows!!' },
+  { name: 'Chantel M.', text: 'Very nice guy! Extremely kind, clean cut and professional. Pays attention to details! Highly recommend.' },
+  { name: 'Steve C.', text: 'Teancum was very polite, diligent, and I thought very professional, which is very hard to find these days.' },
 ]
 
 function StarRow() {
@@ -82,7 +56,7 @@ function ReviewCard({ review }: { review: (typeof reviews)[number] }) {
       </p>
       <div className="mt-4 pt-4 border-t border-gray-100">
         <p className="font-semibold text-charcoal text-sm">{review.name}</p>
-        <p className="text-xs text-muted">{review.location}</p>
+        <p className="text-xs text-muted">Google review</p>
       </div>
     </article>
   )
@@ -110,8 +84,16 @@ export default function Reviews() {
             What Our Customers Say
           </h2>
           <p className="mt-3 text-muted text-sm">
-            5-star rated on Google · Real reviews from St. George homeowners
+            <span className="font-bold text-charcoal">5.0</span> on Google · 30 reviews from Southern Utah homeowners
           </p>
+          <a
+            href="https://share.google/XBO6pCy18W05LUGLt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block text-sm font-bold text-brand-navy underline underline-offset-4 hover:text-brand-navy-mid"
+          >
+            Read all reviews on Google
+          </a>
         </motion.div>
       </div>
 

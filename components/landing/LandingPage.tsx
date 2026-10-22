@@ -25,9 +25,9 @@ const PHONE_DISPLAY = '(435) 500-9720'
 const PHONE_HREF = 'tel:+14355009720'
 
 const reviews = [
-  { text: 'Very polite, diligent, and very professional \u2014 which is hard to find these days.', name: 'Steve C.' },
-  { text: 'Meticulous. He even got a window clean we never could ourselves. We\u2019ll use him from now on!', name: 'Jan' },
-  { text: 'By far the best! Professional, punctual, and pays attention to detail.', name: 'Connie W.' },
+  { text: 'Teancum was very polite, diligent, and I thought very professional, which is very hard to find these days.', name: 'Steve C.' },
+  { text: 'Teancum was very easy to work with. He was meticulous and even got one of our windows clean that we have not been able to do ourselves. We will continue to use him from now on!', name: 'Jan' },
+  { text: 'Wave Window Cleaning is by far the best! He was professional, punctual, knowledgeable and efficient. He pays attention to detail.', name: 'Connie W.' },
 ]
 
 function Stars({ size = 16 }: { size?: number }) {

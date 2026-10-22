@@ -1,7 +1,7 @@
 import { Star, ShieldCheck, CloudRain, BadgeCheck, MapPin } from 'lucide-react'
 
 const items = [
-  { icon: Star, title: '5-Star Rated', sub: 'on Google' },
+  { icon: Star, title: '5.0 on Google', sub: '30 five-star reviews' },
   { icon: ShieldCheck, title: 'Licensed & Insured', sub: 'Proof on request' },
   { icon: CloudRain, title: '7-Day Weather Guarantee', sub: 'Rain after we clean? We re-clean free' },
   { icon: BadgeCheck, title: '100% Satisfaction', sub: 'Guaranteed' },
