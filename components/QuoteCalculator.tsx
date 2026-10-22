@@ -163,7 +163,7 @@ export default function QuoteCalculator() {
           </Link>
 
           <p className="text-center text-white/35 text-xs mt-4">
-            Or call us: (435) 229-5674 · Se Habla Español
+            Or call us: (435) 500-9720 · Se Habla Español
           </p>
         </motion.div>
       </div>

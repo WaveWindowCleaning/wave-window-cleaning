@@ -21,8 +21,8 @@ export interface OfferConfig {
   offerExplainer: string
 }
 
-const PHONE_DISPLAY = '(435) 229-5674'
-const PHONE_HREF = 'tel:+14352295674'
+const PHONE_DISPLAY = '(435) 500-9720'
+const PHONE_HREF = 'tel:+14355009720'
 
 const reviews = [
   { text: 'Very polite, diligent, and very professional \u2014 which is hard to find these days.', name: 'Steve C.' },

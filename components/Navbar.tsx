@@ -70,13 +70,13 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-4">
           <a
-            href="tel:+14352295674"
+            href="tel:+14355009720"
             className={`flex items-center gap-2 text-sm font-medium transition-colors ${
               scrolled ? 'text-brand-navy' : 'text-white/90 hover:text-white'
             }`}
           >
             <Phone size={14} />
-            (435) 229-5674
+            (435) 500-9720
           </a>
           <Link
             href="/quote"
@@ -123,11 +123,11 @@ export default function Navbar() {
               ))}
               <div className="pt-3 space-y-2">
                 <a
-                  href="tel:+14352295674"
+                  href="tel:+14355009720"
                   className="flex items-center justify-center gap-2 border border-brand-navy text-brand-navy font-semibold py-3 rounded-xl"
                 >
                   <Phone size={16} />
-                  (435) 229-5674
+                  (435) 500-9720
                 </a>
                 <Link
                   href="/quote"

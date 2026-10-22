@@ -13,7 +13,8 @@ export const dynamic = 'force-dynamic'
  * Optional extras: Web3Forms, Google Sheet webhook, local CSV.
  */
 
-const FROM = 'Wave Window Cleaning <onboarding@resend.dev>'
+// Set RESEND_FROM_EMAIL (e.g. 'Wave Window Cleaning <quotes@cleanwavewindows.com>') once the domain is verified in Resend.
+const FROM = process.env.RESEND_FROM_EMAIL || 'Wave Window Cleaning <onboarding@resend.dev>'
 const INBOXES = ['teancumpax@gmail.com', 'teancum@cleanwavewindows.com']
 
 interface LeadPayload {
@@ -204,7 +205,7 @@ export async function POST(req: Request) {
 
   if (!results.email) {
     return NextResponse.json(
-      { ok: false, error: 'Could not deliver this quote request. Please call (435) 229-5674.', results },
+      { ok: false, error: 'Could not deliver this quote request. Please call (435) 500-9720.', results },
       { status: 502 },
     )
   }

@@ -35,11 +35,11 @@ export default function CTASection() {
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="tel:+14352295674"
+              href="tel:+14355009720"
               className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-brand-navy font-black text-lg px-9 py-4 rounded-full shadow-2xl hover:-translate-y-0.5 hover:shadow-xl transition-all duration-200"
             >
               <Phone size={20} />
-              (435) 229-5674
+              (435) 500-9720
             </a>
             <Link
               href="/quote"

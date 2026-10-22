@@ -134,11 +134,11 @@ export default function ServiceAreaMap() {
                 We likely do — and we&apos;re always expanding. Give us a quick call and we&apos;ll confirm instantly.
               </p>
               <a
-                href="tel:+14352295674"
+                href="tel:+14355009720"
                 className="inline-flex items-center gap-2 bg-brand-navy text-white font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-brand-navy-dark transition-colors"
               >
                 <Phone size={14} />
-                (435) 229-5674
+                (435) 500-9720
               </a>
             </div>
           </motion.div>

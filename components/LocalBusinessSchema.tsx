@@ -1,10 +1,12 @@
+import { SITE } from '@/lib/site'
+
 export default function LocalBusinessSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Wave Window Cleaning',
     url: 'https://cleanwavewindows.com',
-    telephone: '+14352295674',
+    telephone: SITE.phoneTel,
     email: 'teancum@cleanwavewindows.com',
     image: 'https://cleanwavewindows.com/logo.png',
     description:
@@ -30,13 +32,19 @@ export default function LocalBusinessSchema() {
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Commercial Window Cleaning' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Screen Cleaning' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Hard Water Stain Removal' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Solar Panel Cleaning' } },
       ],
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '47',
-    },
+    // aggregateRating intentionally omitted: review count was unverified. Add back only with real, current numbers.
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        opens: '08:00',
+        closes: '18:00',
+      },
+    ],
+    sameAs: [SITE.yelp],
   }
 
   return (

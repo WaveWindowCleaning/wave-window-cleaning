@@ -66,11 +66,11 @@ export default function Hero() {
               Get My Free Quote
             </Link>
             <a
-              href="tel:+14352295674"
+              href="tel:+14355009720"
               className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/25 text-white font-semibold text-base px-7 py-4 rounded-full hover:bg-white/15 transition-all duration-200"
             >
               <Phone size={16} />
-              Call (435) 229-5674
+              Call (435) 500-9720
             </a>
           </div>
 

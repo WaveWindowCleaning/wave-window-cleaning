@@ -114,13 +114,13 @@ export default function LandingQuoteForm({ variant, offer }: Props) {
       const data = await res.json().catch(() => ({}))
       if (!res.ok || data.ok === false) {
         setErrors({
-          name: data.error || 'Could not send. Please call (435) 229-5674.',
+          name: data.error || 'Could not send. Please call (435) 500-9720.',
         })
         return
       }
       setSubmitted(true)
     } catch {
-      setErrors({ name: 'Could not send. Please call (435) 229-5674.' })
+      setErrors({ name: 'Could not send. Please call (435) 500-9720.' })
     } finally {
       setSubmitting(false)
     }
@@ -153,11 +153,11 @@ export default function LandingQuoteForm({ variant, offer }: Props) {
         <div className="mt-8 bg-surface rounded-2xl p-5 border border-gray-100">
           <p className="text-sm text-muted mb-3">Want it done sooner? Call now:</p>
           <a
-            href="tel:+14352295674"
+            href="tel:+14355009720"
             className="flex items-center justify-center gap-2 bg-brand-navy text-white font-bold py-3.5 rounded-xl hover:bg-brand-navy-dark transition-colors"
           >
             <Phone size={17} />
-            (435) 229-5674
+            (435) 500-9720
           </a>
         </div>
       </motion.div>

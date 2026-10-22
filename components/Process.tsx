@@ -8,7 +8,7 @@ const steps = [
     n: '01',
     icon: ClipboardList,
     title: 'Get Your Free Quote',
-    desc: "Fill out our 60-second form or call us directly at (435) 229-5674. We'll confirm your estimate the same day — no pressure, no surprises, no commitment.",
+    desc: "Fill out our 60-second form or call us directly at (435) 500-9720. We'll confirm your estimate the same day — no pressure, no surprises, no commitment.",
   },
   {
     n: '02',

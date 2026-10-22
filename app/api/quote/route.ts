@@ -3,14 +3,30 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 const TO = 'teancumpax@gmail.com'
-const FROM = 'Wave Window Cleaning <onboarding@resend.dev>'
+// Set RESEND_FROM_EMAIL (e.g. 'Wave Window Cleaning <quotes@cleanwavewindows.com>') once the domain is verified in Resend.
+const FROM = process.env.RESEND_FROM_EMAIL || 'Wave Window Cleaning <onboarding@resend.dev>'
+
+const esc = (v: unknown) =>
+  String(v ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
 
 export async function POST(req: Request) {
   try {
     const body = await req.json()
-    const { name, phone, email, address, service, notes, source } = body
+    const raw = body as Record<string, string | undefined>
+    const { name: rawName, phone: rawPhone } = raw
+    const name = esc(rawName)
+    const phone = esc(rawPhone)
+    const email = esc(raw.email)
+    const address = esc(raw.address)
+    const service = esc(raw.service)
+    const notes = esc(raw.notes)
+    const source = esc(raw.source)
 
-    if (!name?.trim() || !phone?.trim()) {
+    if (!rawName?.trim() || !rawPhone?.trim()) {
       return NextResponse.json({ ok: false, error: 'Name and phone are required.' }, { status: 422 })
     }
 
@@ -39,7 +55,7 @@ export async function POST(req: Request) {
     const { error } = await resend.emails.send({
       from: FROM,
       to: TO,
-      subject: `New Quote Request — ${name}`,
+      subject: `New Quote Request — ${String(rawName).replace(/[\r\n]/g, ' ')}`,
       html,
     })
 

@@ -7,7 +7,7 @@ import { ChevronDown } from 'lucide-react'
 const faqs = [
   {
     q: 'How much does window cleaning cost in St. George?',
-    a: "Most single-story homes with 10–15 windows range from $120–$180. Two-story homes and larger properties are quoted individually. Use our online calculator for an instant range — final price is always confirmed on-site with no surprises.",
+    a: "Most single-story homes with 10–15 windows range from $120–$180. Two-story homes and larger properties are quoted individually. Request a free quote and we'll confirm your price before we start — no surprises.",
   },
   {
     q: 'What is your 7-Day Weather Guarantee?',
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: 'What areas do you serve?',
-    a: "We serve the greater St. George area including Bloomington Hills, Little Valley, Green Springs, Santa Clara, Washington, Ivins, and Snow Canyon. Not sure? Call us at (435) 229-5674 — we cover more ground than most.",
+    a: "We serve the greater St. George area including Bloomington Hills, Little Valley, Green Springs, Santa Clara, Washington, Ivins, and Snow Canyon. Not sure? Call us at (435) 500-9720 — we cover more ground than most.",
   },
   {
     q: 'Are you licensed and insured?',

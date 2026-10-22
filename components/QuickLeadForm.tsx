@@ -94,7 +94,7 @@ export default function QuickLeadForm() {
         </button>
       </div>
       {status === 'error' && (
-        <p className="text-red-300 text-xs mt-2">Something went wrong — please call us directly at (435) 229-5674</p>
+        <p className="text-red-300 text-xs mt-2">Something went wrong — please call us directly at (435) 500-9720</p>
       )}
       <p className="text-white/35 text-xs mt-2">No spam. We&apos;ll call to schedule your free estimate.</p>
     </motion.form>

@@ -32,7 +32,7 @@ export default function MobileCTABar() {
         >
           <div className="grid grid-cols-2 shadow-2xl">
             <a
-              href="tel:+14352295674"
+              href="tel:+14355009720"
               className="flex items-center justify-center gap-2 bg-brand-navy text-white font-bold text-sm py-4 px-3 border-r border-white/10"
             >
               <Phone size={16} />

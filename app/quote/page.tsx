@@ -92,11 +92,11 @@ export default function QuotePage() {
             confirm your free estimate — usually within the hour.
           </p>
           <a
-            href="tel:+14352295674"
+            href="tel:+14355009720"
             className="mt-8 flex items-center justify-center gap-2 bg-brand-navy text-white font-bold py-4 rounded-xl hover:bg-opacity-90 transition-all"
           >
             <Phone size={17} />
-            Call Now: (435) 229-5674
+            Call Now: (435) 500-9720
           </a>
           <Link href="/" className="mt-4 block text-sm text-brand-navy font-medium hover:underline">
             ← Back to Home
@@ -114,9 +114,9 @@ export default function QuotePage() {
           <Link href="/">
             <Image src="/logo.png" alt="Wave Window Cleaning" width={120} height={38} className="h-9 w-auto brightness-200" />
           </Link>
-          <a href="tel:+14352295674" className="flex items-center gap-2 text-white/80 text-sm font-medium hover:text-white">
+          <a href="tel:+14355009720" className="flex items-center gap-2 text-white/80 text-sm font-medium hover:text-white">
             <Phone size={15} />
-            (435) 229-5674
+            (435) 500-9720
           </a>
         </div>
       </div>
@@ -213,7 +213,7 @@ export default function QuotePage() {
             {status === 'error' && (
               <p className="text-red-500 text-sm text-center">
                 Something went wrong. Please call us at{' '}
-                <a href="tel:+14352295674" className="underline">(435) 229-5674</a>.
+                <a href="tel:+14355009720" className="underline">(435) 500-9720</a>.
               </p>
             )}
 
@@ -241,7 +241,7 @@ export default function QuotePage() {
             <div className="flex-1 h-px bg-gray-200" />
           </div>
           <a
-            href="tel:+14352295674"
+            href="tel:+14355009720"
             className="mt-4 flex items-center justify-center gap-2 border-2 border-brand-navy text-brand-navy font-bold py-4 rounded-xl hover:bg-brand-navy hover:text-white transition-all"
           >
             <Phone size={18} />
