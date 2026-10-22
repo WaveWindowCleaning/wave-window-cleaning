@@ -1,9 +1,11 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import WhyChooseUs from '@/components/WhyChooseUs'
+import TrustStrip from '@/components/TrustStrip'
+import Services from '@/components/Services'
+import Gallery from '@/components/Gallery'
 import BeforeAfter from '@/components/BeforeAfter'
 import Reviews from '@/components/Reviews'
-import Services from '@/components/Services'
+import TeamStrip from '@/components/TeamStrip'
 import Process from '@/components/Process'
 import FAQ from '@/components/FAQ'
 import CTASection from '@/components/CTASection'
@@ -14,10 +16,12 @@ export default function HomePage() {
     <main>
       <Navbar />
       <Hero />
-      <WhyChooseUs />
+      <TrustStrip />
+      <Services />
+      <Gallery />
       <BeforeAfter />
       <Reviews />
-      <Services />
+      <TeamStrip />
       <Process />
       <FAQ />
       <CTASection />

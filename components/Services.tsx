@@ -1,123 +1,96 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Home, Building2, Grid3X3, Droplets, Sun, ChevronRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 const services = [
   {
-    icon: Home,
     title: 'Residential Window Cleaning',
-    desc: 'Spotless interior and exterior windows for homes across St. George, Bloomington Hills, Little Valley, and Green Springs. Single-story to large estate properties handled with care.',
-    price: 'Free quote',
-    detail: 'Get your estimate in 60 seconds',
-    showPrice: true,
+    img: '/photos/picture-window-view.jpg',
+    alt: 'Spotless picture window with a desert view',
+    desc: 'Inside and out, from single-story homes to large estates. Tracks, frames and sills are included in every exterior clean.',
+    tag: 'Most popular',
   },
   {
-    icon: Sun,
     title: 'Solar Panel Cleaning',
-    desc: 'Dirty solar panels can lose 15–25% of their energy output. We safely clean and rinse your panels to restore peak performance and protect your investment year-round.',
-    price: 'Custom quote',
-    detail: 'Residential systems · All panel types',
-    showPrice: true,
+    img: '/photos/solar-panels-red-rocks.jpg',
+    alt: 'Clean solar panels with red rocks in the background',
+    desc: 'Dust and mineral film cut panel output. We gently clean and rinse your system so it works as hard as it should.',
+    tag: 'Protect your investment',
   },
   {
-    icon: Building2,
-    title: 'Commercial Window Cleaning',
-    desc: 'First impressions matter. Scheduled maintenance cleaning for storefronts, offices, and small commercial buildings throughout the greater St. George and Washington County area.',
-    price: 'Custom quote',
-    detail: 'Storefronts, offices, and small commercial buildings',
-    showPrice: true,
+    title: 'Screens & Hard Water Removal',
+    img: '/photos/hardwater-after.png',
+    alt: 'Window after hard water stain removal',
+    desc: "Southern Utah's mineral-heavy water leaves a stubborn haze. We deep-clean screens and remove hard water stains regular cleaning can't touch.",
+    tag: 'Free quote',
   },
   {
-    icon: Grid3X3,
-    title: 'Screen Cleaning',
-    desc: "Deep-cleaned screens remove months of Southern Utah's desert dust and allergens. We carefully clean every screen so your windows look and breathe their best.",
-    price: 'Free quote',
-    detail: 'Priced per job — call for details',
-    showPrice: false,
-  },
-  {
-    icon: Droplets,
-    title: 'Hard Water Stain Removal',
-    desc: "Utah's mineral-rich water leaves stubborn white haze on glass over time. Our professional-grade treatment removes calcium and mineral buildup that normal cleaning cannot touch.",
-    price: 'Free quote',
-    detail: 'Priced per job — call for details',
-    showPrice: false,
+    title: 'Commercial Windows',
+    img: '/photos/commercial-studio.jpg',
+    alt: 'Large clean windows in a commercial studio',
+    desc: 'Storefronts, offices and small commercial buildings, on a schedule that fits your business.',
+    tag: 'Custom quote',
   },
 ]
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 lg:py-28 bg-surface">
+    <section id="services" className="py-16 lg:py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-14"
+          className="text-center max-w-2xl mx-auto mb-12"
         >
           <span className="text-brand-navy text-xs font-bold tracking-[0.18em] uppercase">What We Do</span>
           <h2 className="mt-3 text-3xl lg:text-4xl font-black text-charcoal tracking-tight">
-            Services Built for Southern Utah
+            Built for Southern Utah Homes
           </h2>
           <p className="mt-4 text-muted text-lg leading-relaxed">
-            Every service is designed around the specific challenges of St. George&apos;s desert
-            climate — high dust, hard water minerals, and intense UV exposure.
+            Desert dust, hard water and intense sun are tough on glass. Our pure-water system and trained
+            technicians leave it clear.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 gap-6">
           {services.map((svc, i) => (
-            <motion.div
+            <motion.article
               key={svc.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
+              transition={{ duration: 0.5, delay: (i % 2) * 0.1 }}
+              className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-shadow flex flex-col"
             >
-              <div className="w-11 h-11 bg-brand-navy rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-navy-mid transition-colors">
-                <svc.icon size={20} className="text-white" />
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={svc.img}
+                  alt={svc.alt}
+                  fill
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                />
+                <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-brand-navy shadow">
+                  {svc.tag}
+                </span>
               </div>
-              <h3 className="font-bold text-charcoal text-[15px] leading-snug">{svc.title}</h3>
-              <p className="mt-2.5 text-muted text-sm leading-relaxed flex-1">{svc.desc}</p>
-              <div className="mt-5 pt-4 border-t border-gray-100">
-                {svc.showPrice ? (
-                  <>
-                    <p className="text-brand-navy font-black text-sm">{svc.price}</p>
-                    <p className="text-xs text-muted mt-0.5">{svc.detail}</p>
-                  </>
-                ) : (
-                  <Link
-                    href="/quote"
-                    className="inline-flex items-center gap-1.5 text-brand-navy font-semibold text-sm hover:underline"
-                  >
-                    Get a free quote <ChevronRight size={13} />
-                  </Link>
-                )}
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-lg font-black text-charcoal tracking-tight">{svc.title}</h3>
+                <p className="mt-2 text-sm text-muted leading-relaxed flex-1">{svc.desc}</p>
+                <Link
+                  href="/quote"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-brand-navy hover:gap-2.5 transition-all"
+                >
+                  Get a free quote <ArrowRight size={15} />
+                </Link>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="text-center mt-10"
-        >
-          <Link
-            href="/quote"
-            className="inline-flex items-center gap-2 bg-brand-navy text-white font-semibold px-7 py-3.5 rounded-full hover:bg-brand-navy-dark transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-          >
-            Get a Free Estimate
-            <ChevronRight size={16} />
-          </Link>
-        </motion.div>
       </div>
     </section>
   )

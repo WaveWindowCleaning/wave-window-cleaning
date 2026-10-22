@@ -1,131 +1,91 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Phone, Star, ShieldCheck, BadgeCheck } from 'lucide-react'
+import { Phone, MessageSquare, Star } from 'lucide-react'
+import HeroQuoteForm from '@/components/HeroQuoteForm'
 
-const badges = [
-  { icon: Star,        label: '5-Star Rated on Google' },
-  { icon: ShieldCheck, label: 'Licensed & Insured' },
-  { icon: BadgeCheck,  label: '100% Satisfaction Guarantee' },
-]
+const SMS = 'sms:+14355009720?&body=Hi%20Wave%20Window%20Cleaning%2C%20I%27d%20like%20a%20free%20quote.'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex overflow-hidden">
+    <section className="relative overflow-hidden bg-brand-navy">
+      <Image
+        src="/photos/patio-windows.jpg"
+        alt="Clean windows overlooking a St. George patio"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0F2535]/95 via-[#0F2535]/80 to-[#0F2535]/55" />
 
-      {/* ── Left: Copy panel ──────────────────────────────────────────── */}
-      <div className="relative z-10 flex items-center w-full lg:w-[48%] bg-navy-gradient px-6 sm:px-10 lg:px-14 xl:px-20 pt-32 pb-28 lg:py-0">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-14 lg:pt-36 lg:pb-24 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="inline-flex items-center gap-2.5 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-6">
+            <span className="flex gap-0.5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} size={13} className="text-yellow-400 fill-yellow-400" />
+              ))}
+            </span>
+            <span className="text-white/90 text-xs font-semibold tracking-wide">5-Star Rated on Google</span>
+          </div>
 
-        {/* Subtle dot texture */}
-        <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
-          }}
-        />
+          <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black text-white leading-[1.05] tracking-tight">
+            Crystal-Clear Windows.{' '}
+            <span className="text-brand-accent">Streak-Free.</span>{' '}
+            Guaranteed.
+          </h1>
+
+          <p className="mt-6 text-lg text-white/80 leading-relaxed max-w-xl">
+            Locally owned window and solar panel cleaning for St. George homes. Free quotes by call or text, and a
+            100% Satisfaction Guarantee on every job.
+          </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <a
+              href="tel:+14355009720"
+              className="inline-flex items-center justify-center gap-2 bg-white text-brand-navy font-black text-base px-8 py-4 rounded-full shadow-2xl hover:-translate-y-0.5 transition"
+            >
+              <Phone size={18} />
+              Call (435) 500-9720
+            </a>
+            <a
+              href={SMS}
+              className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/30 text-white font-bold text-base px-8 py-4 rounded-full hover:bg-white/15 transition"
+            >
+              <MessageSquare size={18} />
+              Text Us for a Quote
+            </a>
+          </div>
+
+          <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-white/80 max-w-xl">
+            {[
+              'Licensed & insured',
+              '7-Day Weather Guarantee',
+              'Tracks, frames & sills included',
+              'Pure-water, streak-free finish',
+            ].map(t => (
+              <li key={t} className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-accent" />
+                {t}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="relative max-w-xl w-full mx-auto lg:mx-0"
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-
-          {/* Google rating badge */}
-          <div className="inline-flex items-center gap-2.5 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-8">
-            <div className="flex gap-0.5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={12} className="text-yellow-400 fill-yellow-400" />
-              ))}
-            </div>
-            <span className="text-white/90 text-xs font-semibold tracking-wide">5-Star Rated on Google</span>
-          </div>
-
-          {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl xl:text-[3.5rem] font-black text-white leading-[1.06] tracking-tight">
-            Spotless Windows That{' '}
-            <span className="text-brand-accent">Transform</span>{' '}
-            Your Home
-          </h1>
-
-          {/* Supporting copy */}
-          <p className="mt-7 text-[1.05rem] text-white/70 leading-relaxed max-w-md">
-            More natural light. Better curb appeal. A crystal-clear view you&apos;ll
-            enjoy every single day.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3 mt-10">
-            <Link
-              href="/quote"
-              className="group inline-flex items-center justify-center gap-2 bg-white text-brand-navy font-black text-base px-8 py-4 rounded-full shadow-2xl hover:shadow-white/20 hover:-translate-y-0.5 transition-all duration-200"
-            >
-              Get My Free Quote
-            </Link>
-            <a
-              href="tel:+14355009720"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/25 text-white font-semibold text-base px-7 py-4 rounded-full hover:bg-white/15 transition-all duration-200"
-            >
-              <Phone size={16} />
-              Call (435) 500-9720
-            </a>
-          </div>
-
-          {/* Trust badges */}
-          <div className="flex flex-wrap gap-2 mt-10">
-            {badges.map(({ icon: Icon, label }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-1.5 bg-white/8 border border-white/12 text-white/75 text-xs font-medium px-3.5 py-1.5 rounded-full"
-              >
-                <Icon size={11} className="text-brand-accent" />
-                {label}
-              </span>
-            ))}
-          </div>
-
+          <HeroQuoteForm />
         </motion.div>
       </div>
-
-      {/* ── Right: Owner photo panel ───────────────────────────────────── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.1, delay: 0.2 }}
-        className="hidden lg:flex lg:w-[52%] relative overflow-hidden bg-[#1A3D54]"
-      >
-        <div
-          className="absolute inset-0"
-          style={{ clipPath: 'inset(5% 0 6% 0)' }}
-        >
-          <Image
-            src="/teancum.jpg"
-            alt="Teancum, owner of Wave Window Cleaning — St. George, Utah"
-            fill
-            quality={100}
-            className="object-contain"
-            style={{
-              objectPosition: 'center top',
-              filter: 'contrast(1.08) saturate(1.06) brightness(1.03)',
-            }}
-            priority
-            sizes="52vw"
-          />
-        </div>
-        {/* Left-edge fade into navy */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1A3D54]/90 via-[#1A3D54]/20 to-transparent pointer-events-none z-10" />
-      </motion.div>
-
-      {/* Wave divider */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none z-20">
-        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block">
-          <path d="M0 60L1440 60L1440 22C1200 56 900 0 720 14C540 28 240 56 0 22L0 60Z" fill="white" />
-        </svg>
-      </div>
-
     </section>
   )
 }

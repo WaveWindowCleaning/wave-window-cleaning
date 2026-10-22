@@ -65,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <LocalBusinessSchema />
       </head>
-      <body className="bg-white text-charcoal antialiased font-sans">
+      <body className="bg-white text-charcoal antialiased font-sans pb-14 lg:pb-0">
         {children}
         <MobileCTABar />
       </body>
