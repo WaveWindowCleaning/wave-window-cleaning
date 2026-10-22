@@ -5,6 +5,6 @@ export const SITE = {
   url: 'https://cleanwavewindows.com',
   phoneDisplay: '(435) 500-9720',
   phoneTel: '+14355009720',
-  email: 'teancum@cleanwavewindows.com',
+  email: 'info@cleanwavewindows.com',
   yelp: 'https://www.yelp.com/biz/wave-window-cleaning-st-george',
 } as const

@@ -197,8 +197,8 @@ export default function LandingPage({ offer }: { offer: OfferConfig }) {
             <a href={PHONE_HREF} className="flex items-center gap-2 text-white font-semibold hover:text-brand-accent transition-colors">
               <Phone size={16} /> {PHONE_DISPLAY}
             </a>
-            <a href="mailto:teancum@cleanwavewindows.com" className="flex items-center gap-2 hover:text-white transition-colors">
-              teancum@cleanwavewindows.com
+            <a href="mailto:info@cleanwavewindows.com" className="flex items-center gap-2 hover:text-white transition-colors">
+              info@cleanwavewindows.com
             </a>
             <span className="flex items-center gap-2">
               <MapPin size={15} /> St. George, Utah

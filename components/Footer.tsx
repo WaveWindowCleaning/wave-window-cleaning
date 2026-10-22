@@ -82,11 +82,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:teancum@cleanwavewindows.com"
+                  href="mailto:info@cleanwavewindows.com"
                   className="flex items-center gap-2.5 hover:text-white transition-colors"
                 >
                   <Mail size={14} className="shrink-0" />
-                  teancum@cleanwavewindows.com
+                  info@cleanwavewindows.com
                 </a>
               </li>
               <li className="flex items-start gap-2.5">

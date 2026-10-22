@@ -7,7 +7,7 @@ export default function LocalBusinessSchema() {
     name: 'Wave Window Cleaning',
     url: 'https://cleanwavewindows.com',
     telephone: SITE.phoneTel,
-    email: 'teancum@cleanwavewindows.com',
+    email: 'info@cleanwavewindows.com',
     image: 'https://cleanwavewindows.com/logo.png',
     description:
       'Premium residential and commercial window cleaning in St. George, UT. Licensed, insured, and locally owned. Serving Santa Clara, Washington, Ivins, Bloomington, Little Valley, and Green Springs. Se Habla Español.',
