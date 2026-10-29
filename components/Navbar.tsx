@@ -80,6 +80,14 @@ export default function Navbar() {
             (435) 500-9720
           </a>
           <Link
+            href="/es"
+            lang="es"
+            hrefLang="es"
+            className={`text-sm font-medium underline-offset-4 hover:underline ${scrolled ? 'text-charcoal' : 'text-white/90'}`}
+          >
+            Español
+          </Link>
+          <Link
             href="/quote"
             className="bg-brand-navy text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-navy-dark transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
           >
@@ -123,6 +131,15 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <Link
+                href="/es"
+                lang="es"
+                hrefLang="es"
+                onClick={() => setMobileOpen(false)}
+                className="block py-3 px-2 text-charcoal font-medium hover:text-brand-navy border-b border-gray-50"
+              >
+                Español
+              </Link>
               <div className="pt-3 space-y-2">
                 <a
                   href="tel:+14355009720"

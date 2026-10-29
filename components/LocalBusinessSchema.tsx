@@ -12,6 +12,7 @@ export default function LocalBusinessSchema() {
     description:
       'Premium residential and commercial window cleaning in St. George, UT. Licensed, insured, and locally owned. Serving Santa Clara, Washington, Ivins, Bloomington, Little Valley, and Green Springs. Se Habla Español.',
     priceRange: '$$',
+    knowsLanguage: ['en', 'es'],
     currenciesAccepted: 'USD',
     paymentAccepted: 'Cash, Credit Card, Zelle, Venmo',
     areaServed: [

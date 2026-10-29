@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import TrustStrip from '@/components/TrustStrip'
@@ -10,6 +11,13 @@ import Process from '@/components/Process'
 import FAQ from '@/components/FAQ'
 import CTASection from '@/components/CTASection'
 import Footer from '@/components/Footer'
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+    languages: { 'en-US': '/', 'es-US': '/es' },
+  },
+}
 
 export default function HomePage() {
   return (
