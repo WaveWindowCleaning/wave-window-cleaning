@@ -15,7 +15,7 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   alternates: {
     canonical: '/',
-    languages: { 'en-US': '/', 'es-US': '/es' },
+    languages: { 'en-US': '/', 'es-US': '/es', 'ja-JP': '/ja' },
   },
 }
 
