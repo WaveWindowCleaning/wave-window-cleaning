@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -79,4 +77,26 @@ input[type='range'].accent-navy::-webkit-slider-thumb {
   .review-marquee-clone {
     display: none;
   }
+}
+
+/* Keyboard focus indicator for links, buttons and form controls */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #3B9FD4;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Placeholder text must meet 4.5:1 contrast on white inputs (dark-background forms override via utility classes) */
+input::placeholder,
+textarea::placeholder {
+  color: #6B7280;
+  opacity: 1;
 }

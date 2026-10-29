@@ -8,7 +8,7 @@ import { CheckCircle } from 'lucide-react'
 const commitments = [
   'Every window cleaned as if it were my own home',
   'Always on time, always prepared, always respectful',
-  'I stay until the job meets my standard — not just yours',
+  'We stay until the job meets our standard — not just yours',
   'Your home is treated with the same care I\u2019d want for mine',
 ]
 
@@ -73,8 +73,7 @@ export default function MeetOwner() {
                 neighbors.
               </p>
               <p>
-                When I come to your home, I&apos;m not sending a crew you&apos;ve never met. I&apos;m the
-                owner and the one doing the work. That personal accountability drives everything
+                I&apos;m the owner, and I train and stand behind everyone who works on your home. That personal accountability drives everything
                 I do. I take the time to do the job right because my reputation depends on it —
                 and more importantly, because you&apos;re trusting me with your home.
               </p>

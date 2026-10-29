@@ -92,6 +92,7 @@ export default function Navbar() {
           className="lg:hidden p-2 rounded-lg"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? (
             <X size={22} className={scrolled ? 'text-charcoal' : 'text-white'} />

@@ -204,8 +204,8 @@ export default function LandingPage({ offer }: { offer: OfferConfig }) {
               <MapPin size={15} /> St. George, Utah
             </span>
           </div>
-          <p className="mt-5 text-xs text-white/35">
-            © {new Date().getFullYear()} Wave Window Cleaning · Licensed &amp; insured · Serving St. George,
+          <p className="mt-5 text-xs text-white/70">
+            © {new Date().getFullYear()} Wave Window Cleaning · Insured · Serving St. George,
             Santa Clara, Washington, Ivins, Bloomington &amp; Green Springs.
           </p>
         </div>

@@ -23,7 +23,7 @@ const config: Config = {
         'navy-gradient': 'linear-gradient(135deg, #0F2535 0%, #1A3D54 60%, #1E4F6B 100%)',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
       },
     },
   },

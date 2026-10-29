@@ -3,13 +3,13 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Phone, CheckCircle, Loader2 } from 'lucide-react'
+import FormConsent from '@/components/FormConsent'
 
 const SERVICES = [
   'Window Cleaning',
   'Screen Cleaning',
   'Hard Water Removal',
   'Solar Panels',
-  'Gutter Cleaning',
 ]
 
 interface Props {
@@ -141,8 +141,8 @@ export default function LandingQuoteForm({ variant, offer }: Props) {
           Got it, {form.name.split(/\s+/)[0]}!
         </h3>
         <p className="mt-3 text-muted leading-relaxed">
-          Teancum will personally text or call you back{' '}
-          <strong className="text-charcoal">within a few hours</strong> with your free quote
+          We&apos;ll text or call you back{' '}
+          <strong className="text-charcoal">as soon as we can</strong> with your free quote
           {offer ? (
             <>
               {' '}and your <strong className="text-charcoal">{offer}</strong>
@@ -179,7 +179,7 @@ export default function LandingQuoteForm({ variant, offer }: Props) {
             autoComplete="name"
             aria-label="Your name"
           />
-          {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+          {errors.name && <p role="alert" className="text-red-700 text-xs mt-1">{errors.name}</p>}
         </div>
 
         <div>
@@ -192,7 +192,7 @@ export default function LandingQuoteForm({ variant, offer }: Props) {
             autoComplete="tel"
             aria-label="Phone number"
           />
-          {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+          {errors.phone && <p role="alert" className="text-red-700 text-xs mt-1">{errors.phone}</p>}
         </div>
 
         <div>
@@ -204,7 +204,7 @@ export default function LandingQuoteForm({ variant, offer }: Props) {
             autoComplete="street-address"
             aria-label="Home address"
           />
-          {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address}</p>}
+          {errors.address && <p role="alert" className="text-red-700 text-xs mt-1">{errors.address}</p>}
         </div>
 
         <div>
@@ -217,7 +217,7 @@ export default function LandingQuoteForm({ variant, offer }: Props) {
             autoComplete="email"
             aria-label="Email (optional)"
           />
-          {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+          {errors.email && <p role="alert" className="text-red-700 text-xs mt-1">{errors.email}</p>}
         </div>
       </div>
 
@@ -231,6 +231,7 @@ export default function LandingQuoteForm({ variant, offer }: Props) {
               <button
                 type="button"
                 key={svc}
+                aria-pressed={selected}
                 onClick={() => toggleService(svc)}
                 className={`px-3.5 py-2 rounded-full border text-sm font-medium transition-all ${
                   selected
@@ -259,9 +260,8 @@ export default function LandingQuoteForm({ variant, offer }: Props) {
         )}
       </button>
 
-      <p className="mt-3 text-center text-xs text-muted">
-        Takes 20 seconds · No obligation · Locally owned &amp; insured
-      </p>
+      <p className="mt-3 text-center text-xs text-muted">Takes 20 seconds · No obligation</p>
+      <FormConsent />
     </form>
   )
 }

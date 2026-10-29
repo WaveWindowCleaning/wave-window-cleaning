@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, CheckCircle, Loader2, ChevronDown } from 'lucide-react'
+import FormConsent from '@/components/FormConsent'
 
 const SERVICES = [
   'Residential Window Cleaning',
@@ -89,7 +90,7 @@ export default function QuotePage() {
           </h2>
           <p className="text-muted text-sm mt-3 leading-relaxed">
             We&apos;ll call you at <strong className="text-charcoal">{form.phone}</strong> to
-            confirm your free estimate — usually within the hour.
+            confirm your free estimate as soon as we can.
           </p>
           <a
             href="tel:+14355009720"
@@ -114,7 +115,7 @@ export default function QuotePage() {
           <Link href="/">
             <Image src="/logo.png" alt="Wave Window Cleaning" width={120} height={38} className="h-9 w-auto brightness-200" />
           </Link>
-          <a href="tel:+14355009720" className="flex items-center gap-2 text-white/80 text-sm font-medium hover:text-white">
+          <a href="tel:+14355009720" className="flex items-center gap-2 text-white text-sm font-medium hover:underline">
             <Phone size={15} />
             (435) 500-9720
           </a>
@@ -129,7 +130,7 @@ export default function QuotePage() {
         >
           <h1 className="text-3xl font-black text-charcoal">Get Your Free Quote</h1>
           <p className="text-muted text-sm mt-2 mb-8">
-            Fill in your info and we&apos;ll call you — usually within the hour.
+            Fill in your info and we&apos;ll call or text you as soon as we can.
           </p>
 
           <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4">
@@ -137,40 +138,51 @@ export default function QuotePage() {
             {/* Name + Phone — the only required fields */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-charcoal mb-1.5">
+                <label htmlFor="q-name" className="block text-xs font-semibold text-charcoal mb-1.5">
                   Your Name <span className="text-red-400">*</span>
                 </label>
                 <input
+                  id="q-name"
+                  required
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? 'err-name' : undefined}
+                  autoComplete="name"
                   type="text"
                   placeholder="Jane Smith"
                   value={form.name}
                   onChange={e => update('name', e.target.value)}
                   className={inputCls(errors.name)}
                 />
-                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                {errors.name && <p id="err-name" role="alert" className="text-red-700 text-xs mt-1">{errors.name}</p>}
               </div>
               <div>
-                <label className="block text-xs font-semibold text-charcoal mb-1.5">
+                <label htmlFor="q-phone" className="block text-xs font-semibold text-charcoal mb-1.5">
                   Phone Number <span className="text-red-400">*</span>
                 </label>
                 <input
+                  id="q-phone"
+                  required
+                  aria-invalid={!!errors.phone}
+                  aria-describedby={errors.phone ? 'err-phone' : undefined}
+                  autoComplete="tel"
                   type="tel"
                   placeholder="(435) 000-0000"
                   value={form.phone}
                   onChange={e => update('phone', e.target.value)}
                   className={inputCls(errors.phone)}
                 />
-                {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+                {errors.phone && <p id="err-phone" role="alert" className="text-red-700 text-xs mt-1">{errors.phone}</p>}
               </div>
             </div>
 
             {/* Service dropdown */}
             <div>
-              <label className="block text-xs font-semibold text-charcoal mb-1.5">
+              <label htmlFor="q-service" className="block text-xs font-semibold text-charcoal mb-1.5">
                 What do you need? <span className="text-muted font-normal">(optional)</span>
               </label>
               <div className="relative">
                 <select
+                  id="q-service"
                   value={form.service}
                   onChange={e => update('service', e.target.value)}
                   className={`${inputCls()} appearance-none pr-10 text-${form.service ? 'charcoal' : 'muted'}`}
@@ -184,10 +196,12 @@ export default function QuotePage() {
 
             {/* Address */}
             <div>
-              <label className="block text-xs font-semibold text-charcoal mb-1.5">
+              <label htmlFor="q-address" className="block text-xs font-semibold text-charcoal mb-1.5">
                 Property Address <span className="text-muted font-normal">(optional)</span>
               </label>
               <input
+                id="q-address"
+                autoComplete="street-address"
                 type="text"
                 placeholder="123 Main St, St. George, UT"
                 value={form.address}
@@ -198,10 +212,11 @@ export default function QuotePage() {
 
             {/* Notes */}
             <div>
-              <label className="block text-xs font-semibold text-charcoal mb-1.5">
+              <label htmlFor="q-notes" className="block text-xs font-semibold text-charcoal mb-1.5">
                 Anything else we should know? <span className="text-muted font-normal">(optional)</span>
               </label>
               <textarea
+                id="q-notes"
                 rows={3}
                 placeholder="Hard water stains, solar panels, 2-story, etc."
                 value={form.notes}
@@ -211,7 +226,7 @@ export default function QuotePage() {
             </div>
 
             {status === 'error' && (
-              <p className="text-red-500 text-sm text-center">
+              <p role="alert" className="text-red-700 text-sm text-center">
                 Something went wrong. Please call us at{' '}
                 <a href="tel:+14355009720" className="underline">(435) 500-9720</a>.
               </p>
@@ -229,9 +244,7 @@ export default function QuotePage() {
               )}
             </button>
 
-            <p className="text-xs text-center text-muted">
-              No spam. We&apos;ll only contact you about your estimate.
-            </p>
+            <FormConsent />
           </form>
 
           {/* Call alternative */}

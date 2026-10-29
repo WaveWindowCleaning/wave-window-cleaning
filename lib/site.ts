@@ -8,3 +8,11 @@ export const SITE = {
   email: 'info@cleanwavewindows.com',
   yelp: 'https://www.yelp.com/biz/wave-window-cleaning-st-george',
 } as const
+
+// Business details shown on legal pages and the footer.
+export const BUSINESS = {
+  legalName: 'Claro Care LLC',
+  dba: 'Wave Window Cleaning',
+  location: 'St. George, Utah 84770',
+  lastUpdated: 'October 28, 2026',
+} as const

@@ -31,7 +31,7 @@ export default function Footer() {
             />
             <p className="text-sm leading-relaxed max-w-xs">
               Premium window cleaning for St. George, Utah and Washington County. Licensed,
-              insured, and locally owned since day one.
+              insured, and locally owned.
             </p>
             {/* Se Habla Español badge */}
             <div className="mt-5 inline-flex items-center gap-2 bg-white/8 border border-white/12 rounded-full px-3.5 py-1.5">
@@ -60,7 +60,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               {areas.map((a) => (
                 <li key={a} className="flex items-center gap-1.5">
-                  <MapPin size={11} className="shrink-0 text-white/35" />
+                  <MapPin size={11} className="shrink-0 text-white/60" />
                   {a}
                 </li>
               ))}
@@ -105,8 +105,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
-          <p>© {new Date().getFullYear()} Wave Window Cleaning. All rights reserved.</p>
+        <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/70">
+          <div className="text-center sm:text-left space-y-1">
+            <p>© {new Date().getFullYear()} Wave Window Cleaning, a trade name of Claro Care LLC. All rights reserved.</p>
+            <p className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1">
+              <Link href="/privacy" className="underline hover:text-white">Privacy Policy</Link>
+              <Link href="/terms" className="underline hover:text-white">Terms &amp; Guarantee</Link>
+              <Link href="/accessibility" className="underline hover:text-white">Accessibility</Link>
+            </p>
+          </div>
           <p className="text-center">
             Serving St. George · Santa Clara · Washington · Ivins · Bloomington · Little Valley · Green Springs
           </p>

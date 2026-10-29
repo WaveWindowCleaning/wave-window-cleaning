@@ -61,7 +61,7 @@ export default function QuoteCalculator() {
             What Will It Cost?
           </h2>
           <p className="mt-4 text-white/60 text-lg">
-            Get a ballpark estimate in seconds — no commitment needed.
+            Get a ballpark estimate in seconds. Estimates are not a final quote.
           </p>
         </motion.div>
 
@@ -111,6 +111,7 @@ export default function QuoteCalculator() {
             </div>
             <input
               type="range"
+              aria-label="Number of windows"
               min={0}
               max={5}
               step={1}
@@ -125,7 +126,7 @@ export default function QuoteCalculator() {
                   key={lbl}
                   onClick={() => setWindowIdx(i)}
                   className={`text-[11px] font-medium transition-colors ${
-                    windowIdx === i ? 'text-white' : 'text-white/35 hover:text-white/60'
+                    windowIdx === i ? 'text-white' : 'text-white/75 hover:text-white'
                   }`}
                 >
                   {lbl}
@@ -136,7 +137,7 @@ export default function QuoteCalculator() {
 
           {/* Price result */}
           <div className="bg-white/10 border border-white/15 rounded-2xl py-8 px-6 text-center">
-            <p className="text-white/55 text-xs font-semibold tracking-widest uppercase mb-2">
+            <p className="text-white/75 text-xs font-semibold tracking-widest uppercase mb-2">
               Estimated Investment
             </p>
             <motion.p
@@ -148,9 +149,9 @@ export default function QuoteCalculator() {
             >
               {isSamePrice ? `$${price.min}` : `$${price.min}–$${price.max}`}
             </motion.p>
-            <div className="flex items-center justify-center gap-1.5 mt-3 text-white/40 text-xs">
-              <Info size={12} />
-              Final price confirmed on-site · No surprise charges
+            <div className="flex items-center justify-center gap-1.5 mt-3 text-white/75 text-xs">
+              <Info size={12} aria-hidden="true" />
+              Estimate only · Your final price is confirmed in your quote before we start
             </div>
           </div>
 
@@ -162,7 +163,7 @@ export default function QuoteCalculator() {
             <ChevronRight size={17} className="group-hover:translate-x-0.5 transition-transform" />
           </Link>
 
-          <p className="text-center text-white/35 text-xs mt-4">
+          <p className="text-center text-white/75 text-xs mt-4">
             Or call us: (435) 500-9720 · Se Habla Español
           </p>
         </motion.div>

@@ -1,7 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Star } from 'lucide-react'
+import { Star, Pause, Play } from 'lucide-react'
 
 const reviews = [
   { name: 'Benjamin B.', text: 'Excellent work! He got rid of all of the hard water on my basement windows which had been there for years! Also very nice man! Speechless!' },
@@ -24,7 +25,7 @@ function StarRow() {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
+        <Star key={i} size={14} aria-hidden="true" className="text-yellow-400 fill-yellow-400" />
       ))}
     </div>
   )
@@ -43,7 +44,7 @@ function GoogleMark() {
 
 function ReviewCard({ review }: { review: (typeof reviews)[number] }) {
   return (
-    <article className="w-[300px] sm:w-[340px] shrink-0 bg-surface border border-gray-100 rounded-2xl p-6 flex flex-col shadow-sm">
+    <article aria-label={`Google review from ${review.name}`} className="w-[300px] sm:w-[340px] shrink-0 bg-surface border border-gray-100 rounded-2xl p-6 flex flex-col shadow-sm">
       <div className="flex items-center justify-between gap-3">
         <StarRow />
         <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-muted">
@@ -63,6 +64,8 @@ function ReviewCard({ review }: { review: (typeof reviews)[number] }) {
 }
 
 export default function Reviews() {
+  // WCAG 2.2.2: moving content must be pausable
+  const [paused, setPaused] = useState(false)
   return (
     <section id="reviews" className="py-20 lg:py-28 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,7 +77,7 @@ export default function Reviews() {
         >
           <div className="flex justify-center gap-1 mb-4">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} size={22} className="text-yellow-400 fill-yellow-400" />
+              <Star key={i} size={22} aria-hidden="true" className="text-yellow-400 fill-yellow-400" />
             ))}
           </div>
           <span className="text-brand-navy text-xs font-bold tracking-[0.18em] uppercase">
@@ -94,6 +97,17 @@ export default function Reviews() {
           >
             Read all reviews on Google
           </a>
+          <div className="mt-3">
+            <button
+              type="button"
+              onClick={() => setPaused((p) => !p)}
+              aria-pressed={paused}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-charcoal border border-gray-300 rounded-full px-3 py-1.5 hover:bg-gray-50"
+            >
+              {paused ? <Play size={12} aria-hidden="true" /> : <Pause size={12} aria-hidden="true" />}
+              {paused ? 'Play review scroll' : 'Pause review scroll'}
+            </button>
+          </div>
         </motion.div>
       </div>
 
@@ -102,7 +116,10 @@ export default function Reviews() {
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-24 bg-gradient-to-l from-white to-transparent" />
 
         <div className="review-marquee-mask">
-          <div className="review-marquee-track">
+          <div
+            className="review-marquee-track"
+            style={{ animationPlayState: paused ? 'paused' : undefined }}
+          >
             {reviews.map((review) => (
               <ReviewCard key={review.name} review={review} />
             ))}

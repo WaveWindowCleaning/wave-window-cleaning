@@ -8,7 +8,7 @@ const steps = [
     n: '01',
     icon: ClipboardList,
     title: 'Get Your Free Quote',
-    desc: "Fill out our 60-second form or call us directly at (435) 500-9720. We'll confirm your estimate the same day — no pressure, no surprises, no commitment.",
+    desc: "Fill out our short form or call us directly at (435) 500-9720. We'll get back to you as soon as we can — no pressure and no commitment.",
   },
   {
     n: '02',
@@ -20,7 +20,7 @@ const steps = [
     n: '03',
     icon: Sparkles,
     title: 'Enjoy Crystal-Clear Windows',
-    desc: "Sit back and admire the difference. Our 7-Day Weather Guarantee means you're fully protected — rain within a week and we return free.",
+    desc: "Sit back and admire the difference. Our 7-Day Weather Guarantee means you're fully protected — rain within a week and we re-clean the exterior windows free (see Terms).",
   },
 ]
 

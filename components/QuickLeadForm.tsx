@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, CheckCircle, Loader2 } from 'lucide-react'
+import FormConsent from '@/components/FormConsent'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
@@ -46,8 +47,8 @@ export default function QuickLeadForm() {
       >
         <CheckCircle className="text-green-400 shrink-0" size={22} />
         <div>
-          <p className="text-white font-semibold text-sm">Got it! We&apos;ll call you shortly.</p>
-          <p className="text-white/60 text-xs mt-0.5">Usually within the hour during business hours.</p>
+          <p className="text-white font-semibold text-sm">Got it! We&apos;ll call you as soon as we can.</p>
+          <p className="text-white/60 text-xs mt-0.5">We respond during business hours.</p>
         </div>
       </motion.div>
     )
@@ -71,7 +72,8 @@ export default function QuickLeadForm() {
           value={name}
           onChange={e => setName(e.target.value)}
           required
-          className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm px-4 py-3 rounded-xl outline-none focus:border-white/50 focus:bg-white/15 transition-all"
+          aria-label="Your name"
+          className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/70 text-sm px-4 py-3 rounded-xl outline-none focus:border-white focus:ring-2 focus:ring-white/40 focus:bg-white/15 transition-all"
         />
         <input
           type="tel"
@@ -79,7 +81,8 @@ export default function QuickLeadForm() {
           value={phone}
           onChange={e => setPhone(e.target.value)}
           required
-          className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm px-4 py-3 rounded-xl outline-none focus:border-white/50 focus:bg-white/15 transition-all"
+          aria-label="Phone number"
+          className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/70 text-sm px-4 py-3 rounded-xl outline-none focus:border-white focus:ring-2 focus:ring-white/40 focus:bg-white/15 transition-all"
         />
         <button
           type="submit"
@@ -94,9 +97,9 @@ export default function QuickLeadForm() {
         </button>
       </div>
       {status === 'error' && (
-        <p className="text-red-300 text-xs mt-2">Something went wrong — please call us directly at (435) 500-9720</p>
+        <p role="alert" className="text-red-200 text-xs mt-2">Something went wrong — please call us directly at (435) 500-9720</p>
       )}
-      <p className="text-white/35 text-xs mt-2">No spam. We&apos;ll call to schedule your free estimate.</p>
+      <FormConsent tone="dark" />
     </motion.form>
   )
 }

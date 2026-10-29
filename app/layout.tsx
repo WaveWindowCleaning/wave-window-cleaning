@@ -1,7 +1,22 @@
 import type { Metadata } from 'next'
+import localFont from 'next/font/local'
 import './globals.css'
 import LocalBusinessSchema from '@/components/LocalBusinessSchema'
 import MobileCTABar from '@/components/MobileCTABar'
+
+// Self-hosted so visitors' browsers never contact Google Fonts.
+const inter = localFont({
+  src: [
+    { path: './fonts/Inter-Regular.woff', weight: '400', style: 'normal' },
+    { path: './fonts/Inter-Medium.woff', weight: '500', style: 'normal' },
+    { path: './fonts/Inter-SemiBold.woff', weight: '600', style: 'normal' },
+    { path: './fonts/Inter-Bold.woff', weight: '700', style: 'normal' },
+    { path: './fonts/Inter-ExtraBold.woff', weight: '800', style: 'normal' },
+    { path: './fonts/Inter-Black.woff', weight: '900', style: 'normal' },
+  ],
+  variable: '--font-inter',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -9,7 +24,7 @@ export const metadata: Metadata = {
     template: '%s | Wave Window Cleaning',
   },
   description:
-    'Premium window cleaning in St. George, Utah. Licensed & insured. Residential, commercial, screen cleaning, and hard water stain removal. Serving Bloomington, Little Valley, Santa Clara, Washington, Ivins & Green Springs. Free estimates. Se Habla Español.',
+    'Premium window cleaning in St. George, Utah. Residential, commercial, screen cleaning, and hard water stain removal. Serving Bloomington, Little Valley, Santa Clara, Washington, Ivins & Green Springs. Free estimates. Se Habla Español.',
   keywords: [
     'St. George window cleaning',
     'window cleaning St George Utah',
@@ -61,11 +76,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         <LocalBusinessSchema />
       </head>
       <body className="bg-white text-charcoal antialiased font-sans pb-14 lg:pb-0">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-white focus:text-brand-navy focus:font-bold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         {children}
         <MobileCTABar />
       </body>

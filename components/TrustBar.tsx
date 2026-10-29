@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { ShieldCheck, MapPin, Award, Umbrella, Languages } from 'lucide-react'
 
 const trustItems = [
-  { icon: ShieldCheck, label: 'Licensed & Insured',        sub: 'Fully covered, always'         },
+  { icon: ShieldCheck, label: 'Licensed & Insured',        sub: 'Proof of insurance on request'         },
   { icon: MapPin,      label: 'Local St. George Business', sub: 'Proudly serving Southern Utah'   },
   { icon: Award,       label: '100% Satisfaction Guarantee', sub: 'Or we make it right'           },
   { icon: Umbrella,    label: '7-Day Weather Guarantee',   sub: 'Rain? We come back free'        },
@@ -52,7 +52,7 @@ export default function TrustBar() {
             <p className="font-bold text-charcoal text-sm">Our 7-Day Weather Guarantee</p>
             <p className="text-muted text-sm mt-0.5 leading-relaxed">
               If it rains within 7 days of your service, we&apos;ll happily return and reclean your
-              exterior windows for free — no questions asked. Book with confidence.
+              exterior windows for free. Book with confidence.
             </p>
           </div>
         </motion.div>

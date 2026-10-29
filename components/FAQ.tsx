@@ -7,11 +7,11 @@ import { ChevronDown } from 'lucide-react'
 const faqs = [
   {
     q: 'How much does window cleaning cost in St. George?',
-    a: "Most single-story homes with 10–15 windows range from $120–$180. Two-story homes and larger properties are quoted individually. Request a free quote and we'll confirm your price before we start — no surprises.",
+    a: "Typical single-story homes with 10–15 windows have often fallen in the $120–$180 range, but every property is different. Two-story homes and larger properties are quoted individually. Request a free quote and we'll confirm your price before we start.",
   },
   {
     q: 'What is your 7-Day Weather Guarantee?',
-    a: "If it rains within 7 days of your exterior window cleaning service, we'll return and reclean every exterior window at absolutely no charge. Southern Utah weather should never be a reason to delay clean windows.",
+    a: "If it rains within 7 days of your exterior window cleaning service, we'll return and re-clean the exterior windows at no charge (see our Terms for details). Southern Utah weather should never be a reason to delay clean windows.",
   },
   {
     q: 'Do I need to be home during the service?',
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: '¿Hablan español? / Do you offer service in Spanish?',
-    a: 'Sí, hablamos español. Our team is fully bilingual and happy to conduct your entire appointment — from estimate through service — in Spanish. Simply request it when booking.',
+    a: 'Sí, hablamos español. We\u2019re happy to handle your estimate and booking in Spanish. Just let us know when you reach out.',
   },
   {
     q: 'What areas do you serve?',
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: 'Are you licensed and insured?',
-    a: 'Yes, Wave Window Cleaning is fully licensed and carries liability insurance. You can request proof of insurance before your appointment — we have nothing to hide.',
+    a: 'Yes. Wave Window Cleaning is a licensed local business and carries liability insurance. You can request proof of insurance before your appointment.',
   },
 ]
 
@@ -65,6 +65,8 @@ export default function FAQ() {
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
+                aria-controls={`faq-panel-${i}`}
                 className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50/50 transition-colors"
               >
                 <span className="font-medium text-charcoal text-sm sm:text-base leading-snug">
@@ -87,6 +89,7 @@ export default function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
                     className="overflow-hidden"
+                    id={`faq-panel-${i}`}
                   >
                     <p className="px-6 pb-5 text-sm text-muted leading-relaxed border-t border-gray-100 pt-3">
                       {faq.a}

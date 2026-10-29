@@ -29,7 +29,7 @@ export default function CTASection() {
             Windows on the Block?
           </h2>
           <p className="mt-5 text-white/65 text-lg max-w-xl mx-auto leading-relaxed">
-            St. George homeowners love the results. Your estimate is 100% free
+            St. George homeowners love the results. Your estimate is free
             and takes 60 seconds.
           </p>
 
@@ -50,7 +50,7 @@ export default function CTASection() {
             </Link>
           </div>
 
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-4 text-white/40 text-sm">
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-4 text-white/75 text-sm">
             <span className="flex items-center gap-1.5">
               <Languages size={14} />
               Se Habla Español
