@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'Limpieza de ventanas residencial y comercial, paneles solares, mosquiteros y manchas de agua dura en St. George, Utah. Cotización gratis. Hablamos español.',
   alternates: {
     canonical: '/es',
-    languages: { 'es-US': '/es', 'en-US': '/', 'ja-JP': '/ja' },
+    languages: { 'es-US': '/es', 'en-US': '/' },
   },
   openGraph: {
     type: 'website',
