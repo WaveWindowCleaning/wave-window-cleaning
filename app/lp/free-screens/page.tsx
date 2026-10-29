@@ -4,7 +4,7 @@ import LandingPage, { OfferConfig } from '@/components/landing/LandingPage'
 export const metadata: Metadata = {
   title: 'Free Screen Cleaning Offer | Wave Window Cleaning — St. George, UT',
   description:
-    'Book exterior window cleaning and get FREE screen cleaning. Trusted, locally owned, 5.0 on Google, 100% satisfaction guarantee. St. George, Utah.',
+    'Book exterior window cleaning and get FREE screen cleaning. Trusted, locally owned, 5-star rated on Google, 100% satisfaction guarantee. St. George, Utah.',
   robots: { index: false, follow: false },
 }
 

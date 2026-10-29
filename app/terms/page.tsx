@@ -78,7 +78,7 @@ export default function TermsPage() {
       <h2>Reviews</h2>
       <p>
         The customer reviews on this site are shared with the reviewers&rsquo; public Google reviews. We do not edit
-        them. The Google rating and review count shown are updated by hand and may be slightly out of date.
+        them. Our rating claims reflect our public Google reviews at the time we last updated this site.
       </p>
 
       <h2>Website use and intellectual property</h2>

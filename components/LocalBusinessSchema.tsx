@@ -35,7 +35,7 @@ export default function LocalBusinessSchema() {
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Solar Panel Cleaning' } },
       ],
     },
-    // aggregateRating intentionally omitted: review count was unverified. Add back only with real, current numbers.
+    // aggregateRating intentionally omitted: keep out until the count is kept in sync automatically.
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',

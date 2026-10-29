@@ -83,7 +83,7 @@ export default function LandingPage({ offer }: { offer: OfferConfig }) {
           >
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-5">
               <Stars size={12} />
-              <span className="text-white/90 text-xs font-semibold">5.0 on Google · St. George</span>
+              <span className="text-white/90 text-xs font-semibold">5-Star Rated on Google · St. George</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl font-black text-white leading-[1.07] tracking-tight">
@@ -111,7 +111,7 @@ export default function LandingPage({ offer }: { offer: OfferConfig }) {
 
             {/* Trust chips */}
             <div className="flex flex-wrap gap-x-5 gap-y-2 mt-6">
-              {['Licensed & Insured', 'Locally Owned', '5.0 Google Rating'].map((t) => (
+              {['Licensed & Insured', 'Locally Owned', 'All 5-Star Reviews'].map((t) => (
                 <span key={t} className="inline-flex items-center gap-1.5 text-white/80 text-sm font-medium">
                   <CheckCircle2 size={15} className="text-brand-accent" /> {t}
                 </span>

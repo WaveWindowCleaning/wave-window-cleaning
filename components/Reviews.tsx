@@ -87,7 +87,7 @@ export default function Reviews() {
             What Our Customers Say
           </h2>
           <p className="mt-3 text-muted text-sm">
-            <span className="font-bold text-charcoal">5.0</span> on Google · 30 reviews from Southern Utah homeowners
+            <span className="font-bold text-charcoal">Every review is 5 stars</span> · From Southern Utah homeowners on Google
           </p>
           <a
             href="https://share.google/XBO6pCy18W05LUGLt"
