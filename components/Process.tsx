@@ -20,7 +20,7 @@ const steps = [
     n: '03',
     icon: Sparkles,
     title: 'Enjoy Crystal-Clear Windows',
-    desc: "Sit back and admire the difference. Our 7-Day Weather Guarantee means you're fully protected — rain within a week and we re-clean the exterior windows free (see Terms).",
+    desc: "Sit back and admire the difference. Join one of our service plans and our 7-Day Weather Guarantee protects you — rain within a week and we re-clean the exterior windows free (see Terms).",
   },
 ]
 

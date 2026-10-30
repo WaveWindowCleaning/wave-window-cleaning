@@ -40,7 +40,7 @@ export default function TeamStrip() {
             {[
               'Free quote by call or text, no obligation',
               'Tracks, frames and sills included in every exterior clean',
-              'Rain within 7 days? We re-clean the exterior free',
+              'Service plan members: rain within 7 days, we re-clean free',
             ].map(t => (
               <li key={t} className="flex items-start gap-3">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-navy" />

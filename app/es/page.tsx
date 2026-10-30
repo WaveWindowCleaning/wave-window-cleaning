@@ -57,7 +57,7 @@ const services = [
 const steps = [
   { n: '1', title: 'Pida su cotización gratis', desc: 'Llene el formulario corto, llámenos o envíenos un mensaje. Sin presión y sin compromiso.' },
   { n: '2', title: 'Confirmamos precio y fecha', desc: 'Le confirmamos el precio antes de empezar, para que no haya sorpresas.' },
-  { n: '3', title: 'Disfrute sus ventanas', desc: 'Las dejamos sin rayas. Si llueve dentro de 7 días, volvemos a limpiar las ventanas exteriores sin costo.' },
+  { n: '3', title: 'Disfrute sus ventanas', desc: 'Las dejamos sin rayas. Con un plan de servicio, si llueve dentro de 7 días, volvemos a limpiar las ventanas exteriores sin costo.' },
 ]
 
 const faqs = [
@@ -67,7 +67,7 @@ const faqs = [
   },
   {
     q: '¿Qué es la garantía de 7 días por lluvia?',
-    a: 'Si llueve dentro de los 7 días siguientes a la limpieza de sus ventanas exteriores y quedan manchadas, volvemos y las limpiamos de nuevo sin costo. Aplica a las ventanas exteriores que limpiamos nosotros.',
+    a: 'Es un beneficio para los clientes con un plan de servicio. Si llueve dentro de los 7 días siguientes a la limpieza exterior de una visita del plan y las ventanas quedan manchadas, volvemos y las limpiamos de nuevo sin costo. Las limpiezas de una sola vez están cubiertas por nuestra garantía de satisfacción.',
   },
   {
     q: '¿Tengo que estar en casa?',
@@ -152,7 +152,7 @@ export default function SpanishPage() {
               <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-white/85 max-w-xl">
                 {[
                   'Con licencia y seguro',
-                  'Garantía de 7 días por lluvia',
+                  'Garantía de 7 días por lluvia con planes de servicio',
                   'Rieles, marcos y repisas incluidos',
                   'Acabado sin rayas con agua pura',
                 ].map((t) => (
@@ -173,7 +173,7 @@ export default function SpanishPage() {
             {[
               { Icon: Sparkles, title: '5 estrellas en Google', sub: 'Todas nuestras reseñas son de 5 estrellas' },
               { Icon: ShieldCheck, title: 'Con licencia y seguro', sub: 'Prueba del seguro a su solicitud' },
-              { Icon: CloudRain, title: 'Garantía de 7 días', sub: '¿Llueve? Volvemos a limpiar sin costo' },
+              { Icon: CloudRain, title: 'Garantía de 7 días', sub: 'Sin costo con cualquier plan de servicio' },
             ].map(({ Icon, title, sub }) => (
               <div key={title}>
                 <Icon className="mx-auto text-brand-navy" size={28} aria-hidden="true" />

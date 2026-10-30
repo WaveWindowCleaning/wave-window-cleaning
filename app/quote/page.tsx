@@ -244,6 +244,7 @@ export default function QuotePage() {
               )}
             </button>
 
+            <p className="mt-3 text-center text-xs font-semibold text-brand-navy">Ask about a service plan: plan members get our 7-Day Weather Guarantee.</p>
             <FormConsent />
           </form>
 

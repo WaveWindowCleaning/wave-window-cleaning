@@ -7,7 +7,7 @@ const trustItems = [
   { icon: ShieldCheck, label: 'Licensed & Insured',        sub: 'Proof of insurance on request'         },
   { icon: MapPin,      label: 'Local St. George Business', sub: 'Proudly serving Southern Utah'   },
   { icon: Award,       label: '100% Satisfaction Guarantee', sub: 'Or we make it right'           },
-  { icon: Umbrella,    label: '7-Day Weather Guarantee',   sub: 'Rain? We come back free'        },
+  { icon: Umbrella,    label: '7-Day Weather Guarantee',   sub: 'Free with any service plan'        },
   { icon: Languages,   label: 'Se Habla Español',          sub: 'Bilingual team available'       },
 ]
 
@@ -49,10 +49,10 @@ export default function TrustBar() {
             <Umbrella size={20} className="text-white" />
           </div>
           <div>
-            <p className="font-bold text-charcoal text-sm">Our 7-Day Weather Guarantee</p>
+            <p className="font-bold text-charcoal text-sm">Our 7-Day Weather Guarantee, free with any service plan</p>
             <p className="text-muted text-sm mt-0.5 leading-relaxed">
-              If it rains within 7 days of your service, we&apos;ll happily return and reclean your
-              exterior windows for free. Book with confidence.
+              Join a service plan and if it rains within 7 days of your service, we&apos;ll happily return and reclean your
+              exterior windows for free. Ask us how plans work.
             </p>
           </div>
         </motion.div>

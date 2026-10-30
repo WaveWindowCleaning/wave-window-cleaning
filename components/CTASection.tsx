@@ -58,7 +58,7 @@ export default function CTASection() {
             <span>·</span>
             <span>Licensed & Insured</span>
             <span>·</span>
-            <span>7-Day Weather Guarantee</span>
+            <span>7-Day Weather Guarantee with plans</span>
             <span>·</span>
             <span>St. George, UT</span>
           </div>

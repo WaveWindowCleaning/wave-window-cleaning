@@ -3,7 +3,7 @@ import { Star, ShieldCheck, CloudRain, BadgeCheck, MapPin } from 'lucide-react'
 const items = [
   { icon: Star, title: '100% 5-Star on Google', sub: 'Every review is five stars' },
   { icon: ShieldCheck, title: 'Licensed & Insured', sub: 'Proof on request' },
-  { icon: CloudRain, title: '7-Day Weather Guarantee', sub: 'Rain after we clean? We re-clean free' },
+  { icon: CloudRain, title: '7-Day Weather Guarantee', sub: 'Free re-clean with any service plan' },
   { icon: BadgeCheck, title: '100% Satisfaction', sub: 'Guaranteed' },
   { icon: MapPin, title: 'Locally Owned', sub: 'St. George, Utah' },
 ]

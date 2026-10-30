@@ -81,6 +81,7 @@ export default function HeroQuoteForm() {
           Something went wrong. Please call or text (435) 500-9720.
         </p>
       )}
+      <p className="mt-3 text-center text-xs font-semibold text-brand-navy">Ask about a service plan: plan members get our 7-Day Weather Guarantee.</p>
       <FormConsent />
       <p className="mt-3 text-center text-xs text-muted">
         Prefer to talk? <a href="tel:+14355009720" className="font-semibold text-brand-navy">Call</a> or{' '}

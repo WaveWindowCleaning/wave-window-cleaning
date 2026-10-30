@@ -5,7 +5,7 @@ import { SITE, BUSINESS } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Terms of Service & Guarantee',
   description:
-    'Terms for using the Wave Window Cleaning website and booking services, including our satisfaction guarantee, weather guarantee, and refund policy.',
+    'Terms for using the Wave Window Cleaning website and booking services, including our satisfaction guarantee, service plan weather guarantee, and refund policy.',
   alternates: { canonical: '/terms' },
 }
 
@@ -46,12 +46,17 @@ export default function TermsPage() {
         it right, we will discuss a fair partial or full refund for the affected service.
       </p>
 
-      <h2>7-Day Weather Guarantee</h2>
+      <h2>7-Day Weather Guarantee (Service Plan Members)</h2>
       <p>
-        If it rains within 7 days after we clean your <strong>exterior</strong> windows and the rain leaves them spotted
-        or dirty, contact us and we will return and re-clean the exterior windows at no charge. This guarantee covers
-        exterior glass cleaned by us, not interior windows, and does not apply to hard water staining, damage, or
-        conditions unrelated to rain.
+        The 7-Day Weather Guarantee is a benefit for customers with an active Wave Window Cleaning service plan. If it
+        rains within 7 days after we clean your <strong>exterior</strong> windows as part of a service plan visit and the
+        rain leaves them spotted or dirty, contact us and we will return and re-clean the exterior windows at no charge.
+        This guarantee covers exterior glass cleaned by us, not interior windows, and does not apply to hard water
+        staining, damage, or conditions unrelated to rain.
+      </p>
+      <p>
+        One-time cleanings are not covered by the 7-Day Weather Guarantee. They are still covered by the 100%
+        Satisfaction Guarantee above. Ask us about a service plan at any time.
       </p>
 
       <h2>Refunds</h2>

@@ -261,6 +261,7 @@ export default function LandingQuoteForm({ variant, offer }: Props) {
       </button>
 
       <p className="mt-3 text-center text-xs text-muted">Takes 20 seconds · No obligation</p>
+      <p className="mt-3 text-center text-xs font-semibold text-brand-navy">Ask about a service plan: plan members get our 7-Day Weather Guarantee.</p>
       <FormConsent />
     </form>
   )

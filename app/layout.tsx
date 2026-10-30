@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: 'Wave Window Cleaning',
     title: 'Wave Window Cleaning | St. George, UT',
     description:
-      'Premium window cleaning services in St. George, Utah and surrounding areas. Licensed, insured, 7-Day Weather Guarantee. Se Habla Español.',
+      'Premium window cleaning services in St. George, Utah and surrounding areas. Licensed, insured, 100% Satisfaction Guarantee. Free 7-day weather guarantee with service plans. Se Habla Español.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Wave Window Cleaning' }],
   },
   twitter: {

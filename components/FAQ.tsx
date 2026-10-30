@@ -11,7 +11,11 @@ const faqs = [
   },
   {
     q: 'What is your 7-Day Weather Guarantee?',
-    a: "If it rains within 7 days of your exterior window cleaning service, we'll return and re-clean the exterior windows at no charge (see our Terms for details). Southern Utah weather should never be a reason to delay clean windows.",
+    a: "It's a benefit for our service plan members. If it rains within 7 days of a plan visit's exterior window cleaning and spots the glass, we'll return and re-clean the exterior windows at no charge (see our Terms for details). One-time cleanings are covered by our 100% Satisfaction Guarantee.",
+  },
+  {
+    q: 'Do you offer recurring service plans?',
+    a: "Yes. Plans run from an annual cleaning up to monthly visits, billed after each visit, and you can cancel any time. Plan members also get our 7-Day Weather Guarantee. Ask for a plan when you request your quote.",
   },
   {
     q: 'Do I need to be home during the service?',
